@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1f4e3d" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1512" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f4e3d'/%3E%3Cpath d='M5 23l7-12 5 7 4-5 6 10H5z' fill='%23ffffff'/%3E%3Ccircle cx='23' cy='9' r='3' fill='%23eab308'/%3E%3C/svg%3E">
+  <title>Recibo PE-4790 — Peak & Eat</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="recibo" data-role="alumno">
+  <div class="stage">
+    <div class="phone-shell">
+      <div class="demo-strip">
+        <span>Demo visual · Dinero ficticio</span>
+        <span>18 nov · 12:30 h</span>
+      </div>
+
+      <div id="app-test-bar" class="test-bar" hidden>
+        <span>⏱ <strong data-test-time>0 s</strong></span>
+        <span>👆 <strong data-test-clicks>0</strong></span>
+        <span>Meta ≤120 s</span>
+        <button type="button" class="test-reset" data-reset-test>Reiniciar</button>
+      </div>
+      
+      <header class="app-header">
+        <div class="header-left">
+          <a href="pedidos.html" class="header-back" aria-label="Regresar">←</a>
+          <div class="header-title">
+            <strong>Recibo PE-4790</strong>
+            <small>La Cocina de la Esquina · $95</small>
+          </div>
+        </div>
+        <div class="header-actions">
+          <a href="monedero.html" class="pill-wallet" aria-label="Mi monedero: $159">$159</a>
+          <a href="notificaciones.html" class="bell-btn" aria-label="Notificaciones: 2 sin leer">
+            <span aria-hidden="true">🔔</span>
+            <span class="badge-num">2</span>
+          </a>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <div class="stack" data-receipt-page>
+  <article class="ticket ticket-serrated" id="receipt-card">
+    <div style="text-align:center">
+      <div class="brand-lockup" style="justify-content:center;margin-bottom:6px">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 17l6-10 4 6 3-4 5 8H3z"></path>
+            <circle cx="17.5" cy="6.5" r="2" fill="#eab308" stroke="none"></circle>
+          </svg>
+        </span>
+        <div style="text-align:left">
+          <strong>Peak &amp; Eat</strong>
+          <small>ITESO · Guadalajara</small>
+        </div>
+      </div>
+      <h2 id="rc-vendor">La Cocina de la Esquina</h2>
+      <p class="text-muted" id="rc-address">Monte Carmelo 554 · Haciendas de San José</p>
+    </div>
+
+    <div class="ticket-cut" aria-hidden="true"></div>
+
+    <div class="ticket-line"><span>Folio</span><strong class="mono" id="rc-folio">PE-4790</strong></div>
+    <div class="ticket-line"><span>Fecha y hora</span><span id="rc-date">16 nov 2026 · 14:20 h</span></div>
+    <div class="ticket-line"><span>Alumna</span><span>Arantxa Morales</span></div>
+    <div class="ticket-line"><span>Método de pago</span><span>Monedero Peak &amp; Eat</span></div>
+
+    <div class="ticket-cut" aria-hidden="true"></div>
+
+    <div id="rc-lines">
+      <div class="ticket-line">
+        <span>1× Comida corrida casera (2 tiempos)</span>
+        <strong>$95.00</strong>
+      </div>
+      <p class="text-muted" style="font-size:11.5px;margin-bottom:6px">Precio unitario $95.00 · Sin notas especiales</p>
+    </div>
+
+    <div class="ticket-cut" aria-hidden="true"></div>
+
+    <div class="ticket-line"><span>Subtotal</span><span id="rc-sub">$95.00</span></div>
+    <div class="ticket-line"><span>Descuento cupón</span><span id="rc-disc">$0.00</span></div>
+    <div class="ticket-line"><span>Propina</span><span>$0.00</span></div>
+    <div class="ticket-total"><span>Total pagado</span><span id="rc-total">$95.00</span></div>
+
+    <div class="alert alert-ok" style="margin:12px 0;justify-content:center">
+      <span aria-hidden="true">⭐</span>
+      <strong>+15 Peak Points ganados en este pedido</strong>
+    </div>
+
+    <div class="qr-wrap" style="width:140px;height:140px" id="rc-qr-box" data-qr-svg="PE-4790" role="img" aria-label="Código QR decorativo del recibo PE-4790"></div>
+    <div class="barcode" aria-hidden="true"></div>
+    <p class="mono" id="rc-barcode-label" style="text-align:center;font-size:12px;margin-bottom:8px">PE-4790-20261116</p>
+    <p class="text-muted" style="text-align:center;font-weight:700">Comprobante de demostración, sin validez fiscal.</p>
+  </article>
+
+  <section class="stack-sm no-print">
+    <div class="row" style="gap:8px">
+      <button type="button" class="btn btn-primary" id="rc-share-btn" style="flex:1">📤 Compartir</button>
+      <button type="button" class="btn btn-secondary" id="rc-print-btn" style="flex:1">🖨️ Imprimir</button>
+    </div>
+    <button type="button" class="btn btn-secondary" id="rc-reorder-disabled" disabled aria-label="No disponible: La Cocina de la Esquina pausado 15 min">Pedir de nuevo (Local pausado 15 min)</button>
+    <a href="explorar.html#local-gu" class="btn btn-secondary" id="rc-reorder-link" hidden>🔁 Pedir de nuevo</a>
+    <a href="reportar.html?pedido=4790" class="btn btn-ghost" id="rc-report-link">⚠️ Reportar un problema con este pedido</a>
+  </section>
+</div>
+      </main>
+      
+      
+
+      <a id="app-banner" class="notif-banner" role="alert" aria-live="polite">
+        <span style="font-size:20px" aria-hidden="true">🔔</span>
+        <div>
+          <strong data-banner-title style="display:block;font-size:13px">Notificación</strong>
+          <small data-banner-text>Aviso de demostración</small>
+        </div>
+      </a>
+
+      <div id="app-toast" class="toast" role="status" aria-live="polite"></div>
+    </div>
+    
+    <aside class="demo-dock" aria-label="Herramientas de demostración en escritorio">
+      <h2>🛠️ Herramientas de demo</h2>
+      <p>Prototipo visual estático · <strong>recibo.html</strong> · Hora ficticia: 18 nov, 12:30 h.</p>
+
+      <div class="dock-group">
+        <span class="dock-label">Controles visuales</span>
+        <button type="button" class="dock-btn" data-toggle-theme aria-pressed="false">
+          <span>🌓 Tema</span>
+          <span data-theme-label>Claro</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-test aria-pressed="false">
+          <span>⏱️ Modo test (CMA)</span>
+          <span data-test-label>Inactivo</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-empty>
+          <span>📭 Alternar estado vacío</span>
+          <span>Vista</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-empty-cart>
+          <span>🛒 Alternar carrito vacío</span>
+          <span>Carrito</span>
+        </button>
+      </div>
+
+      <div class="dock-group">
+        <span class="dock-label">Accesos rápidos</span>
+        <a href="index.html" class="dock-btn"><span>👋 Onboarding (index)</span><span>→</span></a>
+        <a href="explorar.html" class="dock-btn"><span>🍽️ Alumno · Explorar</span><span>→</span></a>
+        <a href="checkout.html" class="dock-btn"><span>💳 Checkout (PE-4821 · $140)</span><span>→</span></a>
+        <a href="pedido.html" class="dock-btn"><span>⏱️ Seguimiento (PE-4821)</span><span>→</span></a>
+        <a href="progreso.html" class="dock-btn"><span>🏆 Gamificación (220 pts)</span><span>→</span></a>
+        <a href="comercio-pedidos.html" class="dock-btn"><span>🏪 Comercio (Guich Iteso)</span><span>→</span></a>
+      </div>
+    </aside>
+  </div>
+
+  <script src="js/app.js" defer></script>
+  <script src="js/pedidos.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1f4e3d" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1512" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f4e3d'/%3E%3Cpath d='M5 23l7-12 5 7 4-5 6 10H5z' fill='%23ffffff'/%3E%3Ccircle cx='23' cy='9' r='3' fill='%23eab308'/%3E%3C/svg%3E">
+  <title>Mi progreso — Peak & Eat</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="progreso" data-role="alumno">
+  <div class="stage">
+    <div class="phone-shell">
+      <div class="demo-strip">
+        <span>Demo visual · Dinero ficticio</span>
+        <span>18 nov · 12:30 h</span>
+      </div>
+
+      <div id="app-test-bar" class="test-bar" hidden>
+        <span>⏱ <strong data-test-time>0 s</strong></span>
+        <span>👆 <strong data-test-clicks>0</strong></span>
+        <span>Meta ≤120 s</span>
+        <button type="button" class="test-reset" data-reset-test>Reiniciar</button>
+      </div>
+      
+      <header class="app-header">
+        <div class="header-left">
+          <a href="perfil.html" class="header-back" aria-label="Regresar">←</a>
+          <div class="header-title">
+            <strong>Mi progreso</strong>
+            <small>Explorador · 220 pts (120/150)</small>
+          </div>
+        </div>
+        <div class="header-actions">
+          <a href="monedero.html" class="pill-wallet" aria-label="Mi monedero: $159">$159</a>
+          <a href="notificaciones.html" class="bell-btn" aria-label="Notificaciones: 2 sin leer">
+            <span aria-hidden="true">🔔</span>
+            <span class="badge-num">2</span>
+          </a>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <div class="stack" data-progress-page>
+  <section class="card-points" style="margin-bottom:0">
+    <div class="row">
+      <div>
+        <small style="color:#fde047;font-weight:800" id="pg-level-tag">NIVEL 2 · EXPLORADOR 🧭</small>
+        <p style="font-size:32px;font-weight:800;margin-top:2px" id="pg-points">220 pts</p>
+      </div>
+      <span class="tag" style="background:rgba(255,255,255,.16);color:#fff" id="pg-badge-lvl">Explorador</span>
+    </div>
+    <small id="pg-bar-text">120/150 en este nivel · Faltan 30 pts para Frecuente</small>
+    <div class="progress-bar"><span class="progress-fill" id="pg-bar-fill" style="width:80%"></span></div>
+    <p style="font-size:12px;color:#cbd5e1;margin-top:10px"><strong>Beneficios Explorador:</strong> cupones de $25 en bowls/paninis, insignia visible y acceso a retos de facultad.</p>
+  </section>
+
+  <section class="card" style="margin-bottom:0">
+    <div class="row">
+      <h3>🔥 Racha semanal</h3>
+      <span class="tag tag-warn">Racha de 2 semanas</span>
+    </div>
+    <div class="streak-week" aria-label="Calendario de racha semanal: 2 semanas consecutivas">
+      <div class="streak-day is-done">Sem 1<br>🔥 ✓</div>
+      <div class="streak-day is-done">Sem 2<br>🔥 ✓</div>
+      <div class="streak-day">Sem 3<br>Próxima</div>
+      <div class="streak-day">Sem 4<br>Meta 🏆</div>
+    </div>
+    <p class="text-muted">Llevas <strong>2 semanas</strong> seguidas pidiendo desde el 12 nov. Haz al menos 1 pedido la próxima semana para mantener tu racha.</p>
+  </section>
+
+  <section class="card" style="margin-bottom:0">
+    <div class="row" style="margin-bottom:8px">
+      <h3>🎯 Retos activos (5)</h3>
+      <span class="tag tag-ok">1 por reclamar</span>
+    </div>
+    <div class="stack-sm">
+      <div class="reward-item" style="margin-bottom:0;border-color:var(--ok);background:var(--ok-soft)">
+        <div style="flex:1;min-width:0">
+          <strong>Pide 3 veces esta semana</strong>
+          <small style="display:block">3/3 completado · +35 Peak Points</small>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm" id="claim-challenge-btn">Reclamar +35</button>
+      </div>
+
+      <div class="card" style="margin-bottom:0;padding:10px 12px">
+        <div class="row"><strong style="font-size:13.5px">Prueba un local nuevo</strong><span class="tag">2/3 · +30 pts</span></div>
+        <div class="progress-bar"><span class="progress-fill" style="width:67%"></span></div>
+      </div>
+
+      <div class="card" style="margin-bottom:0;padding:10px 12px">
+        <div class="row"><strong style="font-size:13.5px">Califica 2 pedidos</strong><span class="tag">1/2 · +20 pts</span></div>
+        <div class="progress-bar"><span class="progress-fill" style="width:50%"></span></div>
+      </div>
+
+      <div class="card" style="margin-bottom:0;padding:10px 12px">
+        <div class="row"><strong style="font-size:13.5px">Pide antes de las 10 am</strong><span class="tag">0/1 · +25 pts</span></div>
+        <div class="progress-bar"><span class="progress-fill" style="width:0%"></span></div>
+      </div>
+
+      <div class="card" style="margin-bottom:0;padding:10px 12px;opacity:0.75">
+        <div class="row"><strong style="font-size:13.5px">Gasta menos de $100 en un pedido</strong><span class="tag tag-ok">✓ Reclamado +15</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" style="margin-bottom:0">
+    <h3 style="margin-bottom:8px">🏅 Insignias (3/6)</h3>
+    <p class="text-muted" style="margin-bottom:10px">Toca cualquier insignia para ver cómo desbloquearla.</p>
+    <div class="badge-grid">
+      <button type="button" class="badge-item" data-badge-title="Primer pedido" data-badge-status="Desbloqueada · 14 nov" data-badge-desc="Realizaste tu primer pedido sin fila en Peak & Eat (PE-4785).">
+        <span style="font-size:26px" aria-hidden="true">🎉</span>
+        <strong style="font-size:12px">Primer pedido</strong>
+      </button>
+      <button type="button" class="badge-item" data-badge-title="Reseñador" data-badge-status="Desbloqueada · 16 nov" data-badge-desc="Calificaste tu pedido PE-4790 y ayudaste a otros estudiantes.">
+        <span style="font-size:26px" aria-hidden="true">⭐</span>
+        <strong style="font-size:12px">Reseñador</strong>
+      </button>
+      <button type="button" class="badge-item" data-badge-title="Recargador" data-badge-status="Desbloqueada · 13 nov" data-badge-desc="Realizaste tu primera recarga en tu monedero Peak & Eat ($200 con tarjeta de prueba).">
+        <span style="font-size:26px" aria-hidden="true">💳</span>
+        <strong style="font-size:12px">Recargador</strong>
+      </button>
+      <button type="button" class="badge-item is-locked" data-badge-title="Racha de 4 semanas" data-badge-status="Bloqueada · Progreso 2/4" data-badge-desc="Mantén al menos 1 pedido por semana durante 4 semanas consecutivas (llevas 2 de 4).">
+        <span style="font-size:26px" aria-hidden="true">🔥</span>
+        <strong style="font-size:12px">Racha 4 sem</strong>
+        <small>2/4</small>
+      </button>
+      <button type="button" class="badge-item is-locked" data-badge-title="Todos los locales" data-badge-status="Bloqueada · Progreso 4/6" data-badge-desc="Pide en los 6 locales aliados del ITESO (llevas 4 de 6).">
+        <span style="font-size:26px" aria-hidden="true">🗺️</span>
+        <strong style="font-size:12px">Todos locales</strong>
+        <small>4/6</small>
+      </button>
+      <button type="button" class="badge-item is-locked" data-badge-title="10 pedidos" data-badge-status="Bloqueada · Progreso 4/10" data-badge-desc="Completa 10 pedidos válidos en Peak & Eat (llevas 4 de 10; los pedidos cancelados no cuentan).">
+        <span style="font-size:26px" aria-hidden="true">🏆</span>
+        <strong style="font-size:12px">10 pedidos</strong>
+        <small>4/10</small>
+      </button>
+    </div>
+  </section>
+
+  <section class="card" style="margin-bottom:0">
+    <div class="row" style="margin-bottom:6px">
+      <h3>🏫 Reto por facultad (Noviembre)</h3>
+      <span class="tag tag-ok">+15% pts al ganador</span>
+    </div>
+    <p class="text-muted" style="margin-bottom:10px">La facultad #1 del mes gana 15% extra en puntos la primera semana de diciembre.</p>
+    <div class="rank-list">
+      <div class="rank-row is-me"><div><strong>1.° Ingeniería</strong><br><small>Tu facultad · tu aporte: <span data-my-contrib>220</span> pts</small></div><strong>14,820 pts</strong></div>
+      <div class="rank-row"><strong>2.° Negocios</strong><span>13,450 pts</span></div>
+      <div class="rank-row"><strong>3.° Diseño</strong><span>11,900 pts</span></div>
+      <div class="rank-row"><strong>4.° Comunicación</strong><span>9,640 pts</span></div>
+      <div class="rank-row"><strong>5.° Salud</strong><span>8,210 pts</span></div>
+      <div class="rank-row"><strong>6.° Humanidades</strong><span>6,890 pts</span></div>
+    </div>
+  </section>
+
+  <section class="card" style="margin-bottom:0">
+    <div class="row" style="margin-bottom:8px">
+      <h3>🎁 Recompensas canjeables</h3>
+      <a href="monedero.html#tab-cupones" class="link-inline" style="font-size:12px">Mis cupones</a>
+    </div>
+
+    <div class="reward-item">
+      <div><strong>☕ Café americano o agua del día</strong><br><small>100 pts · En Guich Iteso y LECHADA</small></div>
+      <button type="button" class="btn btn-primary btn-sm" data-redeem-name="☕ Café americano o agua del día (−$35)" data-redeem-cost="100">100 pts</button>
+    </div>
+
+    <div class="reward-item">
+      <div><strong>🥗 $25 de descuento en bowl o panini</strong><br><small>150 pts · Compra mínima $90</small></div>
+      <button type="button" class="btn btn-primary btn-sm" data-redeem-name="🥗 $25 de descuento en bowl o panini" data-redeem-cost="150">150 pts</button>
+    </div>
+
+    <div class="reward-item" style="margin-bottom:0;opacity:0.75">
+      <div><strong>🍽️ Platillo gratis hasta $110</strong><br><small id="rw-free-note">400 pts · Bloqueada hasta nivel Frecuente (faltan 180 pts)</small></div>
+      <button type="button" class="btn btn-secondary btn-sm" id="rw-free-btn" disabled>400 pts</button>
+    </div>
+  </section>
+
+  <section class="card" style="margin-bottom:0">
+    <h3 style="margin-bottom:8px">📜 Historial de puntos (220 pts)</h3>
+    <div id="pg-pts-history">
+      <div class="ticket-line" data-pts-delta="15"><span>Pedido programado <span class="mono">PE-4822</span> · 18 nov</span><strong style="color:var(--ok-tx)">+15</strong></div>
+      <div class="ticket-line" data-pts-delta="15"><span>Pedido <span class="mono">PE-4821</span> · 18 nov</span><strong style="color:var(--ok-tx)">+15</strong></div>
+      <div class="ticket-line" data-pts-delta="40"><span>Bono racha de 2 semanas · 18 nov</span><strong style="color:var(--ok-tx)">+40</strong></div>
+      <div class="ticket-line" data-pts-delta="15"><span>Reto "Gasta menos de $100" · 16 nov</span><strong style="color:var(--ok-tx)">+15</strong></div>
+      <div class="ticket-line" data-pts-delta="50"><span>Reto "Primera semana activa" · 16 nov</span><strong style="color:var(--ok-tx)">+50</strong></div>
+      <div class="ticket-line" data-pts-delta="5"><span>Calificación pedido <span class="mono">PE-4790</span> · 16 nov</span><strong style="color:var(--ok-tx)">+5</strong></div>
+      <div class="ticket-line" data-pts-delta="15"><span>Pedido <span class="mono">PE-4790</span> · 16 nov</span><strong style="color:var(--ok-tx)">+15</strong></div>
+      <div class="ticket-line" data-pts-delta="15"><span>Pedido <span class="mono">PE-4785</span> · 14 nov</span><strong style="color:var(--ok-tx)">+15</strong></div>
+      <div class="ticket-line" data-pts-delta="50"><span>Bono de bienvenida · 12 nov</span><strong style="color:var(--ok-tx)">+50</strong></div>
+    </div>
+  </section>
+</div>
+      </main>
+      
+      <div id="sheet-canje" class="sheet-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="cj-title">
+  <div class="sheet">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <div class="sheet-head">
+      <div>
+        <span class="tag tag-warn">Canje de Peak Points</span>
+        <h2 id="cj-title" style="margin-top:4px">Confirmar canje</h2>
+      </div>
+      <button type="button" class="sheet-close" data-close-sheet aria-label="Cerrar canje">✕</button>
+    </div>
+    <div id="cj-confirm-box">
+      <p style="margin-bottom:8px">Vas a canjear <strong id="cj-name"></strong> por <strong id="cj-cost"></strong>.</p>
+      <p class="text-muted" style="margin-bottom:14px">Se generará un cupón listo para usar en tu monedero (cambio visual en esta pantalla).</p>
+      <div class="stack-sm">
+        <button type="button" class="btn btn-primary" id="cj-submit-btn">Confirmar canje</button>
+        <button type="button" class="btn btn-secondary" data-close-sheet>Cancelar</button>
+      </div>
+    </div>
+    <div id="cj-done-box" hidden style="text-align:center">
+      <div style="font-size:40px" aria-hidden="true">🎟️</div>
+      <h3 style="margin-top:6px">¡Cupón generado!</h3>
+      <p class="text-muted" id="cj-done-desc" style="margin:6px 0 14px"></p>
+      <div class="stack-sm">
+        <a href="monedero.html#tab-cupones" class="btn btn-primary">Ver en mi monedero</a>
+        <button type="button" class="btn btn-secondary" data-close-sheet>Seguir en Mi progreso</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="sheet-insignia" class="sheet-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="ins-title">
+  <div class="sheet" style="text-align:center">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <div class="sheet-head">
+      <div style="text-align:left">
+        <span class="tag tag-info" id="ins-status">Insignia</span>
+        <h2 id="ins-title" style="margin-top:4px">Detalle de logro</h2>
+      </div>
+      <button type="button" class="sheet-close" data-close-sheet aria-label="Cerrar insignia">✕</button>
+    </div>
+    <p id="ins-desc" class="text-muted" style="text-align:left;margin-bottom:14px"></p>
+    <button type="button" class="btn btn-primary" data-close-sheet>Entendido</button>
+  </div>
+</div>
+
+<div id="modal-nivel" class="modal-celebration" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lvl-title">
+  <div class="modal-card">
+    <div class="confetti-burst" aria-hidden="true">
+      <span class="confetti-dot"></span>
+      <span class="confetti-dot"></span>
+      <span class="confetti-dot"></span>
+      <span class="confetti-dot"></span>
+      <span class="confetti-dot"></span>
+    </div>
+    <div style="font-size:46px;margin-bottom:4px" aria-hidden="true">🚀</div>
+    <span class="tag tag-warn">¡Subiste de nivel!</span>
+    <h2 id="lvl-title" style="margin-top:8px">Ahora eres Nivel Frecuente</h2>
+    <p class="text-muted" style="margin:6px 0 14px">Alcanzaste <strong>255 Peak Points</strong>. Desbloqueaste acceso a recompensas exclusivas y prioridad en retos del ITESO.</p>
+    <button type="button" class="btn btn-primary" data-close-sheet>¡Genial!</button>
+  </div>
+</div>
+
+      <a id="app-banner" class="notif-banner" role="alert" aria-live="polite">
+        <span style="font-size:20px" aria-hidden="true">🔔</span>
+        <div>
+          <strong data-banner-title style="display:block;font-size:13px">Notificación</strong>
+          <small data-banner-text>Aviso de demostración</small>
+        </div>
+      </a>
+
+      <div id="app-toast" class="toast" role="status" aria-live="polite"></div>
+    </div>
+    
+    <aside class="demo-dock" aria-label="Herramientas de demostración en escritorio">
+      <h2>🛠️ Herramientas de demo</h2>
+      <p>Prototipo visual estático · <strong>progreso.html</strong> · Hora ficticia: 18 nov, 12:30 h.</p>
+
+      <div class="dock-group">
+        <span class="dock-label">Controles visuales</span>
+        <button type="button" class="dock-btn" data-toggle-theme aria-pressed="false">
+          <span>🌓 Tema</span>
+          <span data-theme-label>Claro</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-test aria-pressed="false">
+          <span>⏱️ Modo test (CMA)</span>
+          <span data-test-label>Inactivo</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-empty>
+          <span>📭 Alternar estado vacío</span>
+          <span>Vista</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-empty-cart>
+          <span>🛒 Alternar carrito vacío</span>
+          <span>Carrito</span>
+        </button>
+      </div>
+
+      <div class="dock-group">
+        <span class="dock-label">Accesos rápidos</span>
+        <a href="index.html" class="dock-btn"><span>👋 Onboarding (index)</span><span>→</span></a>
+        <a href="explorar.html" class="dock-btn"><span>🍽️ Alumno · Explorar</span><span>→</span></a>
+        <a href="checkout.html" class="dock-btn"><span>💳 Checkout (PE-4821 · $140)</span><span>→</span></a>
+        <a href="pedido.html" class="dock-btn"><span>⏱️ Seguimiento (PE-4821)</span><span>→</span></a>
+        <a href="progreso.html" class="dock-btn is-current"><span>🏆 Gamificación (220 pts)</span><span>→</span></a>
+        <a href="comercio-pedidos.html" class="dock-btn"><span>🏪 Comercio (Guich Iteso)</span><span>→</span></a>
+      </div>
+    </aside>
+  </div>
+
+  <script src="js/app.js" defer></script>
+  <script src="js/gamificacion.js" defer></script>
+</body>
+</html>

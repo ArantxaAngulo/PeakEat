@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1f4e3d" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1512" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f4e3d'/%3E%3Cpath d='M5 23l7-12 5 7 4-5 6 10H5z' fill='%23ffffff'/%3E%3Ccircle cx='23' cy='9' r='3' fill='%23eab308'/%3E%3C/svg%3E">
+  <title>Iniciar sesión — Peak & Eat</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="login" data-role="sin-sesion">
+  <div class="stage">
+    <div class="phone-shell">
+      <div class="demo-strip">
+        <span>Demo visual · Dinero ficticio</span>
+        <span>18 nov · 12:30 h</span>
+      </div>
+
+      <div id="app-test-bar" class="test-bar" hidden>
+        <span>⏱ <strong data-test-time>0 s</strong></span>
+        <span>👆 <strong data-test-clicks>0</strong></span>
+        <span>Meta ≤120 s</span>
+        <button type="button" class="test-reset" data-reset-test>Reiniciar</button>
+      </div>
+      
+      <header class="app-header">
+        <div class="header-left">
+          <a href="index.html" class="header-back" aria-label="Regresar">←</a>
+          <div class="header-title">
+            <strong>Iniciar sesión</strong>
+            <small>Acceso alumno o comercio aliado</small>
+          </div>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <div class="stack">
+  <div>
+    <h1 data-login-heading>¡Qué gusto verte!</h1>
+    <p class="text-muted" style="margin-top:4px" data-login-sub>Inicia sesión para apartar tu comida sin filas en el ITESO.</p>
+  </div>
+
+  <div class="role-switch" role="tablist" aria-label="Tipo de cuenta">
+    <button type="button" class="role-switch-btn is-active" data-login-role="alumno" role="tab" aria-selected="true">
+      🎓 Soy alumno
+    </button>
+    <button type="button" class="role-switch-btn" data-login-role="comercio" role="tab" aria-selected="false">
+      🏪 Soy comercio
+    </button>
+  </div>
+
+  <div id="login-merchant-note" class="alert alert-info" hidden>
+    <span aria-hidden="true">🏪</span>
+    <div>
+      <strong>Acceso comercio aliado: Guich Iteso</strong>
+      <div style="font-size:12px;margin-top:2px">Usa <span class="mono">guich@iteso.mx</span> o entra directo con la cuenta de demostración.</div>
+    </div>
+  </div>
+
+  <div id="login-error-alert" class="alert alert-bad" role="alert" hidden>
+    <span aria-hidden="true">❌</span>
+    <div>
+      <strong data-login-error-text>Correo o contraseña incorrectos</strong>
+      <div style="font-size:12px;margin-top:2px" data-login-attempts></div>
+    </div>
+  </div>
+
+  <div id="login-lock-alert" class="alert alert-warn" role="alert" hidden>
+    <span aria-hidden="true">⏳</span>
+    <div>
+      <strong>Demasiados intentos fallidos</strong>
+      <div style="font-size:12.5px;margin-top:2px">
+        Por seguridad simulada, espera <strong class="mono" data-lock-seconds>30 s</strong> antes de intentar otra vez.
+      </div>
+    </div>
+  </div>
+
+  <form id="login-form" class="card" novalidate data-auth-login>
+    <div class="field" data-field="email">
+      <label class="field-label" for="login-email">Correo electrónico *</label>
+      <input
+        id="login-email"
+        name="email"
+        type="email"
+        class="input"
+        autocomplete="email"
+        inputmode="email"
+        placeholder="arantxa.morales@iteso.mx"
+        required
+        aria-describedby="login-email-err"
+      >
+      <span id="login-email-err" class="field-error" role="alert">Ingresa un correo electrónico válido.</span>
+    </div>
+
+    <div class="field" data-field="password">
+      <label class="field-label" for="login-pass">Contraseña *</label>
+      <div class="input-pw">
+        <input
+          id="login-pass"
+          name="password"
+          type="password"
+          class="input"
+          autocomplete="current-password"
+          placeholder="••••••••"
+          required
+          aria-describedby="login-pass-hint login-pass-err"
+        >
+        <button type="button" class="pw-toggle" data-toggle-pw="login-pass" aria-label="Mostrar contraseña" aria-pressed="false">👁️</button>
+      </div>
+      <span id="login-pass-hint" class="field-hint">Contraseña demo (ambos roles): <strong class="mono">demo1234</strong> · cualquier otra simula error.</span>
+      <span id="login-pass-err" class="field-error" role="alert">Escribe tu contraseña.</span>
+    </div>
+
+    <div class="row" style="margin:6px 0 14px">
+      <label class="check-row" for="login-keep" style="align-items:center">
+        <input id="login-keep" name="keep" type="checkbox" checked style="margin-top:0">
+        <span>Mantener sesión iniciada</span>
+      </label>
+      <a href="#sheet-recuperar" data-open-sheet="sheet-recuperar" class="link-inline" style="font-size:12.5px;padding:10px 2px">¿Olvidaste tu contraseña?</a>
+    </div>
+
+    <div class="stack">
+      <button type="submit" class="btn btn-primary" data-login-submit>Iniciar sesión</button>
+      <button type="button" class="btn btn-secondary" data-login-demo>Entrar con cuenta de demostración</button>
+    </div>
+  </form>
+
+  <p class="auth-footer" data-login-register-link>
+    ¿Aún no tienes cuenta? <a href="registro.html">Crear cuenta</a>
+  </p>
+
+  <details class="demo-box">
+    <summary>🛠️ Atajos rápidos de demo (acceso y errores)</summary>
+    <div class="chip-wrap">
+      <button type="button" class="chip" data-demo-fill="alumno">Precargar arantxa.morales@iteso.mx</button>
+      <button type="button" class="chip" data-demo-fill="comercio">Precargar guich@iteso.mx</button>
+      <button type="button" class="chip" data-demo-login-fail>Forzar credenciales incorrectas</button>
+      <button type="button" class="chip" data-demo-login-lock>Forzar bloqueo 30 s</button>
+    </div>
+  </details>
+</div>
+      </main>
+      
+      <div id="sheet-recuperar" class="sheet-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="sheet-recuperar-title">
+  <div class="sheet">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <div class="sheet-head">
+      <div>
+        <span class="tag tag-info">Recuperación simulada</span>
+        <h2 id="sheet-recuperar-title" style="margin-top:4px">Recuperar contraseña</h2>
+      </div>
+      <button type="button" class="sheet-close" data-close-sheet aria-label="Cerrar recuperación">✕</button>
+    </div>
+
+    <form id="recover-form" novalidate data-recover-form>
+      <p class="text-muted" style="margin-bottom:12px">Escribe el correo de tu cuenta y simularemos el envío de un enlace de recuperación.</p>
+      <div class="field" data-field="recoverEmail">
+        <label class="field-label" for="recover-email">Correo institucional</label>
+        <input
+          id="recover-email"
+          type="email"
+          class="input"
+          inputmode="email"
+          placeholder="arantxa.morales@iteso.mx"
+          required
+          aria-describedby="recover-email-err"
+        >
+        <span id="recover-email-err" class="field-error" role="alert">Ingresa un correo electrónico válido.</span>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar enlace</button>
+    </form>
+
+    <div id="recover-success" hidden>
+      <div class="alert alert-ok" role="status">
+        <span aria-hidden="true">✅</span>
+        <div>
+          <strong>Te enviamos un enlace</strong>
+          <div style="font-size:12.5px;margin-top:2px">Revisa tu bandeja de <strong data-recover-sent-to></strong>. (Simulación visual: no se envió ningún correo real.)</div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary" data-close-sheet>Volver a iniciar sesión</button>
+    </div>
+  </div>
+</div>
+
+      <a id="app-banner" class="notif-banner" role="alert" aria-live="polite">
+        <span style="font-size:20px" aria-hidden="true">🔔</span>
+        <div>
+          <strong data-banner-title style="display:block;font-size:13px">Notificación</strong>
+          <small data-banner-text>Aviso de demostración</small>
+        </div>
+      </a>
+
+      <div id="app-toast" class="toast" role="status" aria-live="polite"></div>
+    </div>
+    
+    <aside class="demo-dock" aria-label="Herramientas de demostración en escritorio">
+      <h2>🛠️ Herramientas de demo</h2>
+      <p>Prototipo visual estático · <strong>login.html</strong> · Hora ficticia: 18 nov, 12:30 h.</p>
+
+      <div class="dock-group">
+        <span class="dock-label">Controles visuales</span>
+        <button type="button" class="dock-btn" data-toggle-theme aria-pressed="false">
+          <span>🌓 Tema</span>
+          <span data-theme-label>Claro</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-test aria-pressed="false">
+          <span>⏱️ Modo test (CMA)</span>
+          <span data-test-label>Inactivo</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-empty>
+          <span>📭 Alternar estado vacío</span>
+          <span>Vista</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-empty-cart>
+          <span>🛒 Alternar carrito vacío</span>
+          <span>Carrito</span>
+        </button>
+      </div>
+
+      <div class="dock-group">
+        <span class="dock-label">Accesos rápidos</span>
+        <a href="index.html" class="dock-btn"><span>👋 Onboarding (index)</span><span>→</span></a>
+        <a href="explorar.html" class="dock-btn"><span>🍽️ Alumno · Explorar</span><span>→</span></a>
+        <a href="checkout.html" class="dock-btn"><span>💳 Checkout (PE-4821 · $140)</span><span>→</span></a>
+        <a href="pedido.html" class="dock-btn"><span>⏱️ Seguimiento (PE-4821)</span><span>→</span></a>
+        <a href="progreso.html" class="dock-btn"><span>🏆 Gamificación (220 pts)</span><span>→</span></a>
+        <a href="comercio-pedidos.html" class="dock-btn"><span>🏪 Comercio (Guich Iteso)</span><span>→</span></a>
+      </div>
+    </aside>
+  </div>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>

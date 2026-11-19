@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1f4e3d" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1512" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f4e3d'/%3E%3Cpath d='M5 23l7-12 5 7 4-5 6 10H5z' fill='%23ffffff'/%3E%3Ccircle cx='23' cy='9' r='3' fill='%23eab308'/%3E%3C/svg%3E">
+  <title>Crear cuenta — Peak & Eat</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="registro" data-role="sin-sesion">
+  <div class="stage">
+    <div class="phone-shell">
+      <div class="demo-strip">
+        <span>Demo visual · Dinero ficticio</span>
+        <span>18 nov · 12:30 h</span>
+      </div>
+
+      <div id="app-test-bar" class="test-bar" hidden>
+        <span>⏱ <strong data-test-time>0 s</strong></span>
+        <span>👆 <strong data-test-clicks>0</strong></span>
+        <span>Meta ≤120 s</span>
+        <button type="button" class="test-reset" data-reset-test>Reiniciar</button>
+      </div>
+      
+      <header class="app-header">
+        <div class="header-left">
+          <a href="index.html" class="header-back" aria-label="Regresar">←</a>
+          <div class="header-title">
+            <strong>Crear cuenta</strong>
+            <small>Alumna ITESO · Bono $100 + 50 pts</small>
+          </div>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <div class="stack">
+  <div>
+    <h1>Crea tu cuenta ITESO</h1>
+    <p class="text-muted" style="margin-top:4px">Personaliza tus preferencias y recibe <strong>$100 de saldo ficticio + 50 Peak Points</strong> de bienvenida.</p>
+  </div>
+
+  <div id="reg-dup-alert" class="alert alert-bad" role="alert" hidden>
+    <span aria-hidden="true">⚠️</span>
+    <div>
+      <strong>Ya existe una cuenta con este correo.</strong>
+      <div style="margin-top:4px">
+        ¿Quieres iniciar sesión? <a href="login.html?email=arantxa.morales%40iteso.mx" class="link-inline">Ir a iniciar sesión →</a>
+      </div>
+    </div>
+  </div>
+
+  <form id="register-form" class="card" novalidate data-auth-register>
+    <div class="field" data-field="name">
+      <label class="field-label" for="reg-name">Nombre completo *</label>
+      <input
+        id="reg-name"
+        name="name"
+        type="text"
+        class="input"
+        autocomplete="name"
+        placeholder="Ej. Sofía Hernández"
+        required
+        aria-describedby="reg-name-err"
+      >
+      <span id="reg-name-err" class="field-error" role="alert">Escribe tu nombre y apellido.</span>
+    </div>
+
+    <div class="field" data-field="email">
+      <label class="field-label" for="reg-email">Correo institucional *</label>
+      <input
+        id="reg-email"
+        name="email"
+        type="email"
+        class="input"
+        autocomplete="email"
+        inputmode="email"
+        placeholder="tu.nombre@iteso.mx"
+        required
+        aria-describedby="reg-email-hint reg-email-warn reg-email-err"
+      >
+      <span id="reg-email-hint" class="field-hint">Sugerido: dominio <strong>@iteso.mx</strong></span>
+      <span id="reg-email-warn" class="field-hint" style="color:var(--warn-tx);font-weight:700" hidden>
+        Aviso: este correo no es @iteso.mx, pero puedes continuar en modo demostración.
+      </span>
+      <span id="reg-email-err" class="field-error" role="alert">Ingresa un correo válido.</span>
+    </div>
+
+    <div class="field" data-field="password">
+      <label class="field-label" for="reg-pass">Contraseña * (mínimo 8 caracteres)</label>
+      <div class="input-pw">
+        <input
+          id="reg-pass"
+          name="password"
+          type="password"
+          class="input"
+          autocomplete="new-password"
+          placeholder="Mínimo 8 caracteres"
+          required
+          aria-describedby="reg-pass-strength reg-pass-err"
+        >
+        <button type="button" class="pw-toggle" data-toggle-pw="reg-pass" aria-label="Mostrar contraseña" aria-pressed="false">👁️</button>
+      </div>
+      <div class="pw-meter" aria-hidden="true">
+        <span class="pw-bar" data-pw-bar="1"></span>
+        <span class="pw-bar" data-pw-bar="2"></span>
+        <span class="pw-bar" data-pw-bar="3"></span>
+      </div>
+      <span id="reg-pass-strength" class="pw-label" aria-live="polite">Fortaleza: sin evaluar</span>
+      <span id="reg-pass-err" class="field-error" role="alert">Usa al menos 8 caracteres (combina letras y números).</span>
+    </div>
+
+    <div class="field" data-field="confirm">
+      <label class="field-label" for="reg-confirm">Confirmar contraseña *</label>
+      <div class="input-pw">
+        <input
+          id="reg-confirm"
+          name="confirm"
+          type="password"
+          class="input"
+          autocomplete="new-password"
+          placeholder="Repite tu contraseña"
+          required
+          aria-describedby="reg-confirm-err"
+        >
+        <button type="button" class="pw-toggle" data-toggle-pw="reg-confirm" aria-label="Mostrar confirmación de contraseña" aria-pressed="false">👁️</button>
+      </div>
+      <span id="reg-confirm-err" class="field-error" role="alert">Las contraseñas no coinciden.</span>
+    </div>
+
+    <div class="field" data-field="faculty">
+      <label class="field-label" for="reg-faculty">Carrera o facultad *</label>
+      <select id="reg-faculty" name="faculty" class="select" required aria-describedby="reg-faculty-err">
+        <option value="">Selecciona tu facultad</option>
+        <option value="Ingeniería">Ingeniería</option>
+        <option value="Negocios">Negocios</option>
+        <option value="Diseño">Diseño</option>
+        <option value="Comunicación">Comunicación</option>
+        <option value="Salud">Salud</option>
+        <option value="Humanidades">Humanidades</option>
+        <option value="Otra">Otra</option>
+      </select>
+      <span id="reg-faculty-err" class="field-error" role="alert">Selecciona tu carrera o facultad.</span>
+    </div>
+
+    <div class="field">
+      <span class="field-label" id="reg-prefs-label">Preferencias alimentarias (opcional)</span>
+      <p class="field-hint" style="margin:0 0 8px">Usaremos esto para avisarte de alérgenos y activar el filtro "Compatible conmigo".</p>
+      <div class="chip-wrap" role="group" aria-labelledby="reg-prefs-label" data-pref-chips>
+        <button type="button" class="chip" data-pref="vegetariano" aria-pressed="false">🥬 Vegetariano</button>
+        <button type="button" class="chip" data-pref="vegano" aria-pressed="false">🌱 Vegano</button>
+        <button type="button" class="chip" data-pref="sin-gluten" aria-pressed="false">🌾 Sin gluten</button>
+        <button type="button" class="chip" data-pref="sin-lacteos" aria-pressed="false">🥛 Sin lácteos</button>
+        <button type="button" class="chip" data-pref="sin-cacahuate" aria-pressed="false">🥜 Sin cacahuate</button>
+        <button type="button" class="chip is-active" data-pref="ninguna" aria-pressed="true">Ninguna</button>
+      </div>
+    </div>
+
+    <div class="field" data-field="terms" style="margin-top:14px">
+      <label class="check-row" for="reg-terms">
+        <input id="reg-terms" name="terms" type="checkbox" required aria-describedby="reg-terms-err">
+        <span>Acepto los <a href="#sheet-terminos" data-open-sheet="sheet-terminos" class="link-inline">términos de uso y aviso de privacidad</a> de esta demostración.</span>
+      </label>
+      <span id="reg-terms-err" class="field-error" role="alert">Debes aceptar los términos y el aviso de privacidad.</span>
+    </div>
+
+    <button type="submit" class="btn btn-primary" style="margin-top:8px">Crear cuenta</button>
+  </form>
+
+  <p class="auth-footer">
+    ¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a>
+  </p>
+
+  <details class="demo-box">
+    <summary>🛠️ Atajos rápidos de demo (registro)</summary>
+    <div class="chip-wrap">
+      <button type="button" class="chip" data-demo-reg-dup>Forzar correo ya registrado</button>
+      <button type="button" class="chip" data-demo-reg-fill>Autocompletar registro válido</button>
+    </div>
+  </details>
+</div>
+      </main>
+      
+      <div id="sheet-terminos" class="sheet-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="sheet-terminos-title">
+  <div class="sheet">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <div class="sheet-head">
+      <div>
+        <span class="tag tag-info">Aviso de demostración</span>
+        <h2 id="sheet-terminos-title" style="margin-top:4px">Términos y privacidad</h2>
+      </div>
+      <button type="button" class="sheet-close" data-close-sheet aria-label="Cerrar términos">✕</button>
+    </div>
+    <div class="stack" style="font-size:13.5px;color:var(--mu);margin-bottom:16px">
+      <p><strong>1. Uso demostrativo:</strong> Peak &amp; Eat (ITESO) funciona como prototipo visual local. Ningún dato personal, pago o mensaje se envía a servidores externos.</p>
+      <p><strong>2. Dinero ficticio:</strong> El saldo inicial de $100, las recargas y los cupones son estrictamente de demostración y no tienen valor monetario real.</p>
+      <p><strong>3. Preferencias alimentarias:</strong> Los avisos de alérgenos son informativos; en una operación real siempre deben confirmarse directamente en la barra del comercio.</p>
+    </div>
+    <button type="button" class="btn btn-primary" data-close-sheet>Entendido</button>
+  </div>
+</div>
+
+<div id="sheet-bienvenida" class="modal-celebration" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="sheet-bienvenida-title">
+  <div class="modal-card">
+    <div class="confetti-burst" aria-hidden="true">
+      <span class="confetti-dot"></span>
+      <span class="confetti-dot"></span>
+      <span class="confetti-dot"></span>
+      <span class="confetti-dot"></span>
+      <span class="confetti-dot"></span>
+    </div>
+    <div style="font-size:44px;margin-bottom:6px" aria-hidden="true">🎉</div>
+    <h2 id="sheet-bienvenida-title">¡Bienvenida a Peak &amp; Eat!</h2>
+    <p class="text-muted" style="margin-top:6px">Tu cuenta demo quedó lista. Ya acreditamos tu bono de bienvenida:</p>
+    <div class="bonus-grid">
+      <div class="bonus-pill">
+        <strong>+$100</strong>
+        <small>Saldo ficticio</small>
+      </div>
+      <div class="bonus-pill">
+        <strong>+50 pts</strong>
+        <small>Peak Points</small>
+      </div>
+    </div>
+    <p class="text-muted" style="margin-bottom:14px">Cuenta de demostración: tu saldo y puntos de ejemplo ya están cargados.</p>
+    <a href="explorar.html" class="btn btn-primary">Empezar a explorar</a>
+  </div>
+</div>
+
+      <a id="app-banner" class="notif-banner" role="alert" aria-live="polite">
+        <span style="font-size:20px" aria-hidden="true">🔔</span>
+        <div>
+          <strong data-banner-title style="display:block;font-size:13px">Notificación</strong>
+          <small data-banner-text>Aviso de demostración</small>
+        </div>
+      </a>
+
+      <div id="app-toast" class="toast" role="status" aria-live="polite"></div>
+    </div>
+    
+    <aside class="demo-dock" aria-label="Herramientas de demostración en escritorio">
+      <h2>🛠️ Herramientas de demo</h2>
+      <p>Prototipo visual estático · <strong>registro.html</strong> · Hora ficticia: 18 nov, 12:30 h.</p>
+
+      <div class="dock-group">
+        <span class="dock-label">Controles visuales</span>
+        <button type="button" class="dock-btn" data-toggle-theme aria-pressed="false">
+          <span>🌓 Tema</span>
+          <span data-theme-label>Claro</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-test aria-pressed="false">
+          <span>⏱️ Modo test (CMA)</span>
+          <span data-test-label>Inactivo</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-empty>
+          <span>📭 Alternar estado vacío</span>
+          <span>Vista</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-empty-cart>
+          <span>🛒 Alternar carrito vacío</span>
+          <span>Carrito</span>
+        </button>
+      </div>
+
+      <div class="dock-group">
+        <span class="dock-label">Accesos rápidos</span>
+        <a href="index.html" class="dock-btn"><span>👋 Onboarding (index)</span><span>→</span></a>
+        <a href="explorar.html" class="dock-btn"><span>🍽️ Alumno · Explorar</span><span>→</span></a>
+        <a href="checkout.html" class="dock-btn"><span>💳 Checkout (PE-4821 · $140)</span><span>→</span></a>
+        <a href="pedido.html" class="dock-btn"><span>⏱️ Seguimiento (PE-4821)</span><span>→</span></a>
+        <a href="progreso.html" class="dock-btn"><span>🏆 Gamificación (220 pts)</span><span>→</span></a>
+        <a href="comercio-pedidos.html" class="dock-btn"><span>🏪 Comercio (Guich Iteso)</span><span>→</span></a>
+      </div>
+    </aside>
+  </div>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>

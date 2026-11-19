@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1f4e3d" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1512" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f4e3d'/%3E%3Cpath d='M5 23l7-12 5 7 4-5 6 10H5z' fill='%23ffffff'/%3E%3Ccircle cx='23' cy='9' r='3' fill='%23eab308'/%3E%3C/svg%3E">
+  <title>Pedido PE-4821 — Peak & Eat</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="pedido" data-role="alumno">
+  <div class="stage">
+    <div class="phone-shell">
+      <div class="demo-strip">
+        <span>Demo visual · Dinero ficticio</span>
+        <span>18 nov · 12:30 h</span>
+      </div>
+
+      <div id="app-test-bar" class="test-bar" hidden>
+        <span>⏱ <strong data-test-time>0 s</strong></span>
+        <span>👆 <strong data-test-clicks>0</strong></span>
+        <span>Meta ≤120 s</span>
+        <button type="button" class="test-reset" data-reset-test>Reiniciar</button>
+      </div>
+      
+      <header class="app-header">
+        <div class="header-left">
+          <a href="pedidos.html" class="header-back" aria-label="Regresar">←</a>
+          <div class="header-title">
+            <strong>Pedido PE-4821</strong>
+            <small>Guich Iteso · Preparando</small>
+          </div>
+        </div>
+        <div class="header-actions">
+          <a href="monedero.html" class="pill-wallet" aria-label="Mi monedero: $159">$159</a>
+          <a href="notificaciones.html" class="bell-btn" aria-label="Notificaciones: 2 sin leer">
+            <span aria-hidden="true">🔔</span>
+            <span class="badge-num">2</span>
+          </a>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <div class="stack" data-order-tracker>
+  <section class="card" style="margin-bottom:0">
+    <div class="row">
+      <span class="tag tag-warn" id="ot-status-badge">🔥 Preparando</span>
+      <strong class="mono" style="color:var(--pri-tx)">PE-4821</strong>
+    </div>
+    <h1 id="ot-eta" style="margin-top:8px">Listo en ~6 min</h1>
+    <p class="text-muted" id="ot-eta-sub" style="margin-top:3px">Guich Iteso está preparando tu pedido en plancha.</p>
+
+    <div class="timeline" id="ot-timeline" aria-label="Estados del pedido">
+      <div class="timeline-step is-done" data-step="0">
+        <span class="timeline-dot" aria-hidden="true">✓</span>
+        <div><strong>Recibido</strong><br><small data-step-time="0">12:15 h · Pago confirmado</small></div>
+      </div>
+      <div class="timeline-step is-current" data-step="1">
+        <span class="timeline-dot" aria-hidden="true">2</span>
+        <div><strong>Preparando</strong><br><small data-step-time="1">12:18 h · En cocina</small></div>
+      </div>
+      <div class="timeline-step" data-step="2">
+        <span class="timeline-dot" aria-hidden="true">3</span>
+        <div><strong>Listo para recoger</strong><br><small data-step-time="2">Estimado 12:26 h</small></div>
+      </div>
+      <div class="timeline-step" data-step="3">
+        <span class="timeline-dot" aria-hidden="true">4</span>
+        <div><strong>Recogido</strong><br><small data-step-time="3">Pendiente</small></div>
+      </div>
+    </div>
+
+    <details class="demo-box" style="margin-top:10px">
+      <summary>🛠️ Simular avance de estado (demo)</summary>
+      <div class="demo-stepper" role="group" aria-label="Elegir estado de demostración">
+        <button type="button" class="chip" data-set-stage="0">1. Recibido</button>
+        <button type="button" class="chip is-active" data-set-stage="1">2. Preparando</button>
+        <button type="button" class="chip" data-set-stage="2">3. Listo</button>
+        <button type="button" class="chip" data-set-stage="3">4. Recogido</button>
+        <button type="button" class="chip" id="ot-auto-btn">▶ Auto (6 s)</button>
+      </div>
+    </details>
+  </section>
+
+  <div id="ot-ready-cta" class="card" hidden style="margin-bottom:0;border-color:var(--ok);background:var(--ok-soft)">
+    <h3 style="color:var(--ok-tx)">🎉 ¡Tu pedido te espera en la barra!</h3>
+    <p style="font-size:13px;margin:4px 0 10px">Muestra tu QR en Guich Iteso y confirma cuando lo tengas en mano.</p>
+    <div class="stack-sm">
+      <button type="button" class="btn btn-primary" data-open-sheet="sheet-qr">📱 Mostrar código QR</button>
+      <a href="calificar.html?pedido=4821" class="btn btn-secondary">✅ Ya recogí mi pedido (+5 pts al calificar)</a>
+    </div>
+  </div>
+
+  <div id="ot-picked-cta" class="card" hidden style="margin-bottom:0">
+    <h3>🍽️ ¡Buen provecho, Arantxa!</h3>
+    <p class="text-muted" style="margin:4px 0 10px">Pedido entregado en barra Peak &amp; Eat.</p>
+    <div class="row" style="gap:8px">
+      <a href="calificar.html?pedido=4821" class="btn btn-primary btn-sm">⭐ Calificar</a>
+      <a href="recibo.html?pedido=4821" class="btn btn-secondary btn-sm">📄 Ver recibo</a>
+    </div>
+  </div>
+
+  <section class="card" style="margin-bottom:0">
+    <h3 style="margin-bottom:8px">Acciones rápidas</h3>
+    <div class="stack-sm">
+      <button type="button" class="btn btn-primary" id="ot-onmyway-btn">🚶 Voy en camino</button>
+      <div class="row" style="gap:8px">
+        <a href="chat.html" class="btn btn-secondary" style="flex:1">💬 Chat con vendedor <span class="tag tag-bad">1</span></a>
+        <button type="button" class="btn btn-secondary" id="ot-qr-btn" data-open-sheet="sheet-qr" style="flex:1">📱 Código QR</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" style="margin-bottom:0">
+    <h3 style="margin-bottom:6px">📍 Dónde recoger</h3>
+    <p style="font-size:13.5px"><strong>Guich Iteso</strong></p>
+    <p class="text-muted">Periférico Sur 3880 (Frente al campus, barra lateral Peak &amp; Eat · sin fila).</p>
+  </section>
+
+  <section class="card" style="margin-bottom:0">
+    <h3 style="margin-bottom:8px">Resumen del pedido</h3>
+    <div class="total-row"><span>1× Panini artesanal de pavo y panela</span><span>$98</span></div>
+    <div class="total-row"><span>1× Ensalada fresca con pollo a la plancha</span><span>$110</span></div>
+    <div class="total-row"><span>Cupón aplicado</span><span style="color:var(--ok-tx);font-weight:700">−$25</span></div>
+    <div class="total-final"><span>Total (Monedero)</span><span>$183</span></div>
+    <p class="text-muted" style="margin-top:6px">Recogida: Lo antes posible · Nota: <em>Sin cebolla</em></p>
+  </section>
+
+  <section class="card" style="margin-bottom:0">
+    <div class="stack-sm">
+      <button type="button" class="btn btn-danger-soft" id="ot-cancel-btn" data-open-sheet="sheet-cancelar" disabled aria-describedby="ot-cancel-note">Cancelar pedido</button>
+      <small id="ot-cancel-note">La cancelación gratuita solo está disponible mientras el estado sea "Recibido". En "Preparando" ya no se puede cancelar desde la app.</small>
+      <a href="ayuda.html" class="btn btn-ghost">❓ Necesito ayuda</a>
+    </div>
+  </section>
+</div>
+      </main>
+      
+      <div id="sheet-qr" class="sheet-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="p-qr-title">
+  <div class="sheet" style="text-align:center">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <div class="sheet-head">
+      <div style="text-align:left">
+        <span class="tag tag-ok">Barra Peak &amp; Eat</span>
+        <h2 id="p-qr-title" style="margin-top:4px">Código de entrega</h2>
+      </div>
+      <button type="button" class="sheet-close" data-close-sheet aria-label="Cerrar código QR">✕</button>
+    </div>
+    <div class="qr-wrap" data-qr-svg="PE-4821" role="img" aria-label="Código QR de demostración para PE-4821"></div>
+    <p><strong class="mono" style="font-size:20px">PE-4821</strong></p>
+    <p class="text-muted" style="margin:4px 0 14px">Guich Iteso · Muéstralo en la barra para recoger sin fila.<br><strong>Código de demostración.</strong></p>
+    <button type="button" class="btn btn-primary" data-close-sheet>Cerrar</button>
+  </div>
+</div>
+
+<div id="sheet-cancelar" class="sheet-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="p-cancel-title">
+  <div class="sheet">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <div class="sheet-head">
+      <div>
+        <span class="tag tag-bad">Cancelación gratuita</span>
+        <h2 id="p-cancel-title" style="margin-top:4px">¿Cancelar pedido PE-4821?</h2>
+      </div>
+      <button type="button" class="sheet-close" data-close-sheet aria-label="Cerrar cancelación">✕</button>
+    </div>
+    <form id="ot-cancel-form" novalidate>
+      <p class="text-muted" style="margin-bottom:10px">Como aún está en <strong>Recibido</strong>, te reembolsaremos $183 a tu monedero y devolveremos tu cupón de −$25.</p>
+      <div class="field">
+        <label class="field-label" for="ot-cancel-reason">Motivo de cancelación</label>
+        <select id="ot-cancel-reason" class="select">
+          <option>Me equivoqué de pedido</option>
+          <option>Ya no llego a recogerlo</option>
+          <option>Cambié de opinión</option>
+          <option>Tarda demasiado</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <div class="stack-sm">
+        <button type="submit" class="btn btn-danger">Confirmar cancelación</button>
+        <a href="ayuda.html" class="btn btn-ghost">Necesito ayuda en su lugar</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+      <a id="app-banner" class="notif-banner" role="alert" aria-live="polite">
+        <span style="font-size:20px" aria-hidden="true">🔔</span>
+        <div>
+          <strong data-banner-title style="display:block;font-size:13px">Notificación</strong>
+          <small data-banner-text>Aviso de demostración</small>
+        </div>
+      </a>
+
+      <div id="app-toast" class="toast" role="status" aria-live="polite"></div>
+    </div>
+    
+    <aside class="demo-dock" aria-label="Herramientas de demostración en escritorio">
+      <h2>🛠️ Herramientas de demo</h2>
+      <p>Prototipo visual estático · <strong>pedido.html</strong> · Hora ficticia: 18 nov, 12:30 h.</p>
+
+      <div class="dock-group">
+        <span class="dock-label">Controles visuales</span>
+        <button type="button" class="dock-btn" data-toggle-theme aria-pressed="false">
+          <span>🌓 Tema</span>
+          <span data-theme-label>Claro</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-test aria-pressed="false">
+          <span>⏱️ Modo test (CMA)</span>
+          <span data-test-label>Inactivo</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-empty>
+          <span>📭 Alternar estado vacío</span>
+          <span>Vista</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-empty-cart>
+          <span>🛒 Alternar carrito vacío</span>
+          <span>Carrito</span>
+        </button>
+      </div>
+
+      <div class="dock-group">
+        <span class="dock-label">Accesos rápidos</span>
+        <a href="index.html" class="dock-btn"><span>👋 Onboarding (index)</span><span>→</span></a>
+        <a href="explorar.html" class="dock-btn"><span>🍽️ Alumno · Explorar</span><span>→</span></a>
+        <a href="checkout.html" class="dock-btn"><span>💳 Checkout (PE-4821 · $140)</span><span>→</span></a>
+        <a href="pedido.html" class="dock-btn is-current"><span>⏱️ Seguimiento (PE-4821)</span><span>→</span></a>
+        <a href="progreso.html" class="dock-btn"><span>🏆 Gamificación (220 pts)</span><span>→</span></a>
+        <a href="comercio-pedidos.html" class="dock-btn"><span>🏪 Comercio (Guich Iteso)</span><span>→</span></a>
+      </div>
+    </aside>
+  </div>
+
+  <script src="js/app.js" defer></script>
+  <script src="js/pedidos.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1f4e3d" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1512" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f4e3d'/%3E%3Cpath d='M5 23l7-12 5 7 4-5 6 10H5z' fill='%23ffffff'/%3E%3Ccircle cx='23' cy='9' r='3' fill='%23eab308'/%3E%3C/svg%3E">
+  <title>Pedidos entrantes — Guich Iteso</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="comercio-pedidos" data-role="comercio">
+  <div class="stage">
+    <div class="phone-shell">
+      <div class="demo-strip">
+        <span>Demo visual · Dinero ficticio</span>
+        <span>18 nov · 12:30 h</span>
+      </div>
+
+      <div id="app-test-bar" class="test-bar" hidden>
+        <span>⏱ <strong data-test-time>0 s</strong></span>
+        <span>👆 <strong data-test-clicks>0</strong></span>
+        <span>Meta ≤120 s</span>
+        <button type="button" class="test-reset" data-reset-test>Reiniciar</button>
+      </div>
+      
+      <header class="app-header">
+        <div class="header-brand">
+          <strong>Guich Iteso</strong>
+          <small>🏪 Comercio aliado · 12:30 h</small>
+        </div>
+        <div class="header-actions">
+          <span class="tag tag-ok" id="m-header-status"><span class="dot"></span> Abierto</span>
+          <span class="tag tag-info" id="m-header-active">4 activos</span>
+        </div>
+      </header>
+
+      <main class="app-main has-nav">
+        <div data-merchant-orders>
+  <div class="card" style="padding:10px 12px;margin-bottom:10px">
+    <div class="row">
+      <div class="row-start" style="gap:8px">
+        <label class="switch"><input id="m-open-switch" type="checkbox" checked aria-label="Local abierto o cerrado"><span class="switch-slider"></span></label>
+        <div>
+          <strong style="font-size:13.5px" id="m-open-label">Local abierto</strong>
+          <small style="display:block">Recibiendo pedidos · 08:00–18:00</small>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary btn-sm" id="m-sim-incoming">＋ Simular entrante</button>
+    </div>
+  </div>
+
+  <div data-empty-content>
+    <div data-tabs id="m-order-tabs">
+      <div class="tabs" role="tablist" aria-label="Estados de pedidos del comercio">
+        <button type="button" class="tab-btn is-active" data-tab="m-nuevos" role="tab" aria-selected="true">Nuevos (<span data-m-count="nuevos">2</span>)</button>
+        <button type="button" class="tab-btn" data-tab="m-preparando" role="tab" aria-selected="false">Preparando (<span data-m-count="preparando">1</span>)</button>
+        <button type="button" class="tab-btn" data-tab="m-listos" role="tab" aria-selected="false">Listos (<span data-m-count="listos">1</span>)</button>
+        <button type="button" class="tab-btn" data-tab="m-programados" role="tab" aria-selected="false">Programados (<span data-m-count="programados">1</span>)</button>
+        <button type="button" class="tab-btn" data-tab="m-historial" role="tab" aria-selected="false">Historial (<span data-m-count="historial">2</span>)</button>
+      </div>
+
+      <!-- NUEVOS (2) -->
+      <div class="tab-panel is-active" data-tab-panel="m-nuevos" data-m-list="nuevos" role="tabpanel">
+        <article class="card-order is-delayed" data-m-card="PE-4823" data-m-stage="nuevos">
+          <div class="row">
+            <strong class="mono" style="color:var(--pri-tx)">PE-4823</strong>
+            <span class="tag tag-bad">⏱ Retrasado · 4 min sin aceptar</span>
+          </div>
+          <p style="font-size:13.5px;margin-top:6px"><strong>Diego R.</strong> · 12:26 h · Lo antes posible</p>
+          <p style="font-size:13.5px;margin-top:4px">1× Ensalada fresca con pollo a la plancha · <strong>$110</strong></p>
+          <div class="chip-wrap" style="margin:8px 0 10px">
+            <span class="tag tag-warn">💵 Cobrar al recoger</span>
+          </div>
+          <div class="row" style="gap:8px" data-m-actions>
+            <button type="button" class="btn btn-primary btn-sm" data-m-accept="PE-4823" style="flex:1">Aceptar</button>
+            <button type="button" class="btn btn-danger-soft btn-sm" data-m-reject="PE-4823">Rechazar</button>
+          </div>
+        </article>
+
+        <article class="card-order" data-m-card="PE-4824" data-m-stage="nuevos">
+          <div class="row">
+            <strong class="mono" style="color:var(--pri-tx)">PE-4824</strong>
+            <span class="tag tag-info">Hace 1 min · 12:29 h</span>
+          </div>
+          <p style="font-size:13.5px;margin-top:6px"><strong>Valeria S.</strong> · Lo antes posible</p>
+          <p style="font-size:13.5px;margin-top:4px">1× Panini artesanal ($98) + 1× Café americano ($35) · <strong>$133</strong></p>
+          <div class="chip-wrap" style="margin:8px 0 10px">
+            <span class="tag tag-ok">✓ Pagado</span>
+            <span class="tag tag-warn">📝 Nota: Sin queso</span>
+          </div>
+          <div class="row" style="gap:8px" data-m-actions>
+            <button type="button" class="btn btn-primary btn-sm" data-m-accept="PE-4824" style="flex:1">Aceptar</button>
+            <button type="button" class="btn btn-danger-soft btn-sm" data-m-reject="PE-4824">Rechazar</button>
+          </div>
+        </article>
+      </div>
+
+      <!-- PREPARANDO (1) -->
+      <div class="tab-panel" data-tab-panel="m-preparando" data-m-list="preparando" role="tabpanel" hidden>
+        <article class="card-order" data-m-card="PE-4821" data-m-stage="preparando" data-order-folio="PE-4821" data-order-total="183">
+          <div class="row">
+            <strong class="mono" style="color:var(--pri-tx)">PE-4821</strong>
+            <span class="tag tag-ok">🚶 Viene en camino</span>
+          </div>
+          <p style="font-size:13.5px;margin-top:6px"><strong>Arantxa M.</strong> · 12:15 h · Lo antes posible</p>
+          <p style="font-size:13.5px;margin-top:4px">1× Panini artesanal + 1× Ensalada fresca · <strong>$183</strong></p>
+          <div class="chip-wrap" style="margin:8px 0 10px">
+            <span class="tag tag-ok">✓ Pagado</span>
+            <span class="tag tag-warn">📝 Nota: Sin cebolla</span>
+          </div>
+          <div class="row" style="gap:8px" data-m-actions>
+            <button type="button" class="btn btn-primary btn-sm" data-m-ready="PE-4821" style="flex:1">Marcar listo</button>
+            <a href="comercio-chat.html" class="btn btn-secondary btn-sm">💬 Chat <span class="tag tag-bad">1</span></a>
+          </div>
+        </article>
+      </div>
+
+      <!-- LISTOS (1) -->
+      <div class="tab-panel" data-tab-panel="m-listos" data-m-list="listos" role="tabpanel" hidden>
+        <article class="card-order" data-m-card="PE-4819" data-m-stage="listos">
+          <div class="row">
+            <strong class="mono" style="color:var(--pri-tx)">PE-4819</strong>
+            <span class="tag tag-ok">✅ Listo en barra</span>
+          </div>
+          <p style="font-size:13.5px;margin-top:6px"><strong>Mateo V.</strong> · 12:08 h · Lo antes posible</p>
+          <p style="font-size:13.5px;margin-top:4px">2× Panini artesanal de pavo y panela · <strong>$196</strong></p>
+          <div class="chip-wrap" style="margin:8px 0 10px">
+            <span class="tag tag-ok">✓ Pagado</span>
+          </div>
+          <div class="row" style="gap:8px" data-m-actions>
+            <button type="button" class="btn btn-primary btn-sm" data-m-deliver="PE-4819" style="flex:1">Entregado (validar folio)</button>
+          </div>
+        </article>
+      </div>
+
+      <!-- PROGRAMADOS (1) -->
+      <div class="tab-panel" data-tab-panel="m-programados" data-m-list="programados" role="tabpanel" hidden>
+        <article class="card-order" data-m-card="PE-4822" data-m-stage="programados" data-order-folio="PE-4822" data-order-total="98">
+          <div class="row">
+            <strong class="mono" style="color:var(--pri-tx)">PE-4822</strong>
+            <span class="tag tag-info">🕒 Recogida 14:30 h</span>
+          </div>
+          <p style="font-size:13.5px;margin-top:6px"><strong>Arantxa M.</strong> · Cocina inicia 14:20 h</p>
+          <p style="font-size:13.5px;margin-top:4px">1× Panini artesanal de pavo y panela · <strong>$98</strong></p>
+          <div class="chip-wrap" style="margin:8px 0 10px">
+            <span class="tag tag-ok">✓ Pagado</span>
+          </div>
+          <div class="row" style="gap:8px" data-m-actions>
+            <button type="button" class="btn btn-primary btn-sm" data-m-accept="PE-4822" style="flex:1">Adelantar a cocina</button>
+            <button type="button" class="btn btn-danger-soft btn-sm" data-m-reject="PE-4822">Rechazar</button>
+          </div>
+        </article>
+      </div>
+
+      <!-- HISTORIAL (2) -->
+      <div class="tab-panel" data-tab-panel="m-historial" data-m-list="historial" role="tabpanel" hidden>
+        <article class="card-order" data-m-card="PE-4812" data-m-stage="historial">
+          <div class="row">
+            <strong class="mono" style="color:var(--pri-tx)">PE-4812</strong>
+            <span class="tag tag-ok">✓ Entregado · 11:32 h</span>
+          </div>
+          <p style="font-size:13.5px;margin-top:6px"><strong>Mateo V.</strong> · 1× Panini ($98) + 1× Café americano ($35) · <strong>$133</strong></p>
+          <small>Pagado con Monedero · Calificado ★★★★★</small>
+        </article>
+
+        <article class="card-order" data-m-card="PE-4808" data-m-stage="historial">
+          <div class="row">
+            <strong class="mono" style="color:var(--pri-tx)">PE-4808</strong>
+            <span class="tag tag-ok">✓ Entregado · 11:18 h</span>
+          </div>
+          <p style="font-size:13.5px;margin-top:6px"><strong>Camila G.</strong> · 1× Ensalada fresca con pollo · <strong>$110</strong></p>
+          <small>Pagado con Monedero · Calificado ★★★★☆</small>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <section class="empty-state" data-empty-box hidden>
+    <div class="empty-icon" aria-hidden="true">🧾</div>
+    <h2>Sin pedidos en esta pestaña</h2>
+    <p>Cuando llegue un pedido nuevo o simules uno entrante aparecerá aquí al instante.</p>
+    <button type="button" class="btn btn-primary btn-sm" data-toggle-empty>Volver a pedidos</button>
+  </section>
+</div>
+      </main>
+      
+      <nav class="bottom-nav" aria-label="Navegación principal comercio">
+        <a href="comercio-pedidos.html" class="nav-item is-active" aria-current="page">
+          <span class="nav-ic" aria-hidden="true">🧾</span>
+          <span>Pedidos</span><span class="nav-badge" aria-label="4 activos">4</span>
+        </a>
+        <a href="comercio-menu.html" class="nav-item">
+          <span class="nav-ic" aria-hidden="true">🥪</span>
+          <span>Menú</span>
+        </a>
+        <a href="comercio-metricas.html" class="nav-item">
+          <span class="nav-ic" aria-hidden="true">📊</span>
+          <span>Métricas</span>
+        </a>
+        <a href="comercio-local.html" class="nav-item">
+          <span class="nav-ic" aria-hidden="true">🏪</span>
+          <span>Local</span>
+        </a>
+      </nav>
+      <div id="sheet-aceptar" class="sheet-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="ma-title">
+  <div class="sheet">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <div class="sheet-head">
+      <div>
+        <span class="tag tag-ok">Aceptar pedido</span>
+        <h2 id="ma-title" style="margin-top:4px">Tiempo estimado · <span class="mono" id="ma-folio">PE-4823</span></h2>
+      </div>
+      <button type="button" class="sheet-close" data-close-sheet aria-label="Cerrar aceptar">✕</button>
+    </div>
+    <form id="m-accept-form" novalidate>
+      <div class="field">
+        <span class="field-label">¿En cuántos minutos estará listo?</span>
+        <div class="chip-wrap" role="group" aria-label="Tiempo estimado">
+          <button type="button" class="chip" data-eta-preset="5">5 min</button>
+          <button type="button" class="chip is-active" data-eta-preset="10">10 min</button>
+          <button type="button" class="chip" data-eta-preset="15">15 min</button>
+        </div>
+      </div>
+      <div class="field" data-field="etaCustom">
+        <label class="field-label" for="ma-eta-custom">O tiempo personalizado (min)</label>
+        <input id="ma-eta-custom" type="number" class="input" min="2" max="45" value="10" aria-describedby="ma-eta-err">
+        <span id="ma-eta-err" class="field-error" role="alert">Ingresa entre 2 y 45 minutos.</span>
+      </div>
+      <button type="submit" class="btn btn-primary">Aceptar y pasar a Preparando</button>
+    </form>
+  </div>
+</div>
+
+<div id="sheet-rechazar" class="sheet-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="mr-title">
+  <div class="sheet">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <div class="sheet-head">
+      <div>
+        <span class="tag tag-bad">Rechazar pedido</span>
+        <h2 id="mr-title" style="margin-top:4px">Motivo · <span class="mono" id="mr-folio">PE-4823</span></h2>
+      </div>
+      <button type="button" class="sheet-close" data-close-sheet aria-label="Cerrar rechazar">✕</button>
+    </div>
+    <form id="m-reject-form" novalidate>
+      <p class="text-muted" style="margin-bottom:10px">Se notificará al estudiante y, si estaba pagado, el saldo regresará a su monedero.</p>
+      <div class="field">
+        <label class="field-label" for="mr-reason">Motivo del rechazo</label>
+        <select id="mr-reason" class="select">
+          <option>Ingrediente agotado</option>
+          <option>Alta demanda en cocina</option>
+          <option>Local próximo a cerrar</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <div class="stack-sm">
+        <button type="submit" class="btn btn-danger">Confirmar rechazo</button>
+        <button type="button" class="btn btn-secondary" data-close-sheet>Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="sheet-entregar" class="sheet-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="me-title">
+  <div class="sheet">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <div class="sheet-head">
+      <div>
+        <span class="tag tag-ok">Validar entrega</span>
+        <h2 id="me-title" style="margin-top:4px">Confirmar folio <span class="mono" id="me-folio-expected">PE-4819</span></h2>
+      </div>
+      <button type="button" class="sheet-close" data-close-sheet aria-label="Cerrar entrega">✕</button>
+    </div>
+    <form id="m-deliver-form" novalidate>
+      <div class="field" data-field="deliverFolio">
+        <label class="field-label" for="me-folio-input">Escribe el folio que muestra el alumno</label>
+        <input id="me-folio-input" type="text" class="input mono" placeholder="Ej. PE-4819" required aria-describedby="me-folio-err">
+        <span id="me-folio-err" class="field-error" role="alert">El folio no coincide con el pedido seleccionado.</span>
+      </div>
+      <button type="submit" class="btn btn-primary">Confirmar entrega</button>
+    </form>
+  </div>
+</div>
+
+      <a id="app-banner" class="notif-banner" role="alert" aria-live="polite">
+        <span style="font-size:20px" aria-hidden="true">🔔</span>
+        <div>
+          <strong data-banner-title style="display:block;font-size:13px">Notificación</strong>
+          <small data-banner-text>Aviso de demostración</small>
+        </div>
+      </a>
+
+      <div id="app-toast" class="toast" role="status" aria-live="polite"></div>
+    </div>
+    
+    <aside class="demo-dock" aria-label="Herramientas de demostración en escritorio">
+      <h2>🛠️ Herramientas de demo</h2>
+      <p>Prototipo visual estático · <strong>comercio-pedidos.html</strong> · Hora ficticia: 18 nov, 12:30 h.</p>
+
+      <div class="dock-group">
+        <span class="dock-label">Controles visuales</span>
+        <button type="button" class="dock-btn" data-toggle-theme aria-pressed="false">
+          <span>🌓 Tema</span>
+          <span data-theme-label>Claro</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-test aria-pressed="false">
+          <span>⏱️ Modo test (CMA)</span>
+          <span data-test-label>Inactivo</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-empty>
+          <span>📭 Alternar estado vacío</span>
+          <span>Vista</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-empty-cart>
+          <span>🛒 Alternar carrito vacío</span>
+          <span>Carrito</span>
+        </button>
+      </div>
+
+      <div class="dock-group">
+        <span class="dock-label">Accesos rápidos</span>
+        <a href="index.html" class="dock-btn"><span>👋 Onboarding (index)</span><span>→</span></a>
+        <a href="explorar.html" class="dock-btn"><span>🍽️ Alumno · Explorar</span><span>→</span></a>
+        <a href="checkout.html" class="dock-btn"><span>💳 Checkout (PE-4821 · $140)</span><span>→</span></a>
+        <a href="pedido.html" class="dock-btn"><span>⏱️ Seguimiento (PE-4821)</span><span>→</span></a>
+        <a href="progreso.html" class="dock-btn"><span>🏆 Gamificación (220 pts)</span><span>→</span></a>
+        <a href="comercio-pedidos.html" class="dock-btn is-current"><span>🏪 Comercio (Guich Iteso)</span><span>→</span></a>
+      </div>
+    </aside>
+  </div>
+
+  <script src="js/app.js" defer></script>
+  <script src="js/comercio.js" defer></script>
+</body>
+</html>

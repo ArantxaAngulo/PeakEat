@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1f4e3d" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1512" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f4e3d'/%3E%3Cpath d='M5 23l7-12 5 7 4-5 6 10H5z' fill='%23ffffff'/%3E%3Ccircle cx='23' cy='9' r='3' fill='%23eab308'/%3E%3C/svg%3E">
+  <title>Mi perfil — Peak & Eat</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="perfil" data-role="alumno">
+  <div class="stage">
+    <div class="phone-shell">
+      <div class="demo-strip">
+        <span>Demo visual · Dinero ficticio</span>
+        <span>18 nov · 12:30 h</span>
+      </div>
+
+      <div id="app-test-bar" class="test-bar" hidden>
+        <span>⏱ <strong data-test-time>0 s</strong></span>
+        <span>👆 <strong data-test-clicks>0</strong></span>
+        <span>Meta ≤120 s</span>
+        <button type="button" class="test-reset" data-reset-test>Reiniciar</button>
+      </div>
+      
+      <header class="app-header">
+        <div class="header-brand">
+          <strong>Peak &amp; Eat</strong>
+          <small>📍 ITESO · 12:30 h</small>
+        </div>
+        <div class="header-actions">
+          <a href="progreso.html" class="pill-pts" aria-label="Mis puntos: 220 puntos">⭐ 220 pts</a>
+          <a href="monedero.html" class="pill-wallet" aria-label="Mi monedero: 159 pesos">$159</a>
+          <a href="notificaciones.html" class="bell-btn" aria-label="Notificaciones: 2 sin leer">
+            <span aria-hidden="true">🔔</span>
+            <span class="badge-num">2</span>
+          </a>
+        </div>
+      </header>
+
+      <main class="app-main has-nav">
+        <div class="stack" data-profile-page>
+  <section class="card" style="margin-bottom:0">
+    <form id="profile-name-form" class="row-start" novalidate>
+      <div class="avatar-circle" id="pf-avatar" aria-hidden="true">A</div>
+      <div style="flex:1;min-width:0">
+        <label class="field-label" for="pf-name" style="margin-bottom:3px">Tu nombre</label>
+        <div class="row" style="gap:6px">
+          <input id="pf-name" type="text" class="input" value="Arantxa Morales" maxlength="50" style="min-height:44px">
+          <button type="submit" class="btn btn-primary btn-sm" style="min-height:44px">Guardar</button>
+        </div>
+      </div>
+    </form>
+    <div class="chip-wrap" style="margin-top:10px">
+      <span class="tag tag-info">🎓 Ingeniería · ITESO</span>
+      <span class="tag tag-warn">🥜 Sin cacahuate</span>
+      <span class="tag tag-ok">🔥 Racha de 2 semanas</span>
+    </div>
+  </section>
+
+  <a href="monedero.html" class="card-wallet" style="margin-bottom:0;display:block">
+    <div class="row">
+      <div>
+        <small>Mi monedero · Saldo de demostración</small>
+        <p style="font-size:28px;font-weight:800;margin-top:2px">$159</p>
+      </div>
+      <span class="tag" style="background:rgba(255,255,255,.18);color:#fff">Ver historial →</span>
+    </div>
+  </a>
+
+  <a href="progreso.html" class="card-points" style="margin-bottom:0;display:block">
+    <div class="row">
+      <div>
+        <small style="color:#fde047;font-weight:700">NIVEL EXPLORADOR · RACHA 2 SEMANAS</small>
+        <p style="font-size:26px;font-weight:800;margin-top:2px">⭐ 220 pts</p>
+      </div>
+      <span class="tag" style="background:rgba(255,255,255,.14);color:#fff">Mi progreso →</span>
+    </div>
+    <small>120/150 en este nivel · Faltan 30 pts para Frecuente</small>
+    <div class="progress-bar"><span class="progress-fill" style="width:80%"></span></div>
+  </a>
+
+  <nav class="menu-list" aria-label="Accesos de cuenta">
+    <a href="favoritos.html" class="menu-row">
+      <span>❤️ Mis favoritos y combos</span>
+      <small>3 platillos · 2 combos →</small>
+    </a>
+    <a href="monedero.html#tab-cupones" class="menu-row">
+      <span>🎟️ Mis cupones</span>
+      <small>1 disponible →</small>
+    </a>
+    <a href="pedidos.html" class="menu-row">
+      <span>🛍️ Historial de pedidos</span>
+      <small>5 pedidos →</small>
+    </a>
+    <a href="ayuda.html" class="menu-row">
+      <span>❓ Ayuda y preguntas frecuentes</span>
+      <small>FAQ →</small>
+    </a>
+    <a href="mis-reportes.html" class="menu-row">
+      <span>📋 Mis reportes</span>
+      <small>2 tickets →</small>
+    </a>
+    <a href="ajustes.html" class="menu-row">
+      <span>⚙️ Ajustes y herramientas demo</span>
+      <small>Configurar →</small>
+    </a>
+  </nav>
+
+  <details class="faq-item" id="partner-details">
+    <summary>🏪 Soy un comercio y quiero unirme</summary>
+    <p style="margin-bottom:10px">Únete al piloto de Peak &amp; Eat en el ITESO: perfil destacado $299/mes o pedidos sin fila con 12 % de comisión por venta.</p>
+    <form id="partner-form" novalidate>
+      <div class="field" data-field="partnerName">
+        <label class="field-label" for="pt-biz">Nombre del negocio *</label>
+        <input id="pt-biz" type="text" class="input" placeholder="Ej. Café del Campus" required aria-describedby="pt-biz-err">
+        <span id="pt-biz-err" class="field-error" role="alert">Escribe el nombre de tu comercio.</span>
+      </div>
+      <div class="field" data-field="partnerPhone">
+        <label class="field-label" for="pt-wa">WhatsApp del encargado *</label>
+        <input id="pt-wa" type="tel" class="input" placeholder="33 1234 5678" required aria-describedby="pt-wa-err">
+        <span id="pt-wa-err" class="field-error" role="alert">Ingresa un número de contacto válido.</span>
+      </div>
+      <button type="submit" class="btn btn-primary">Solicitar alianza piloto</button>
+    </form>
+    <div id="partner-ok" class="alert alert-ok" role="status" hidden style="margin:10px 0 0">
+      <span aria-hidden="true">✅</span>
+      <div><strong>¡Solicitud enviada!</strong> Nuestro equipo piloto del ITESO te contactará pronto (simulado).</div>
+    </div>
+  </details>
+</div>
+      </main>
+      
+      <nav class="bottom-nav" aria-label="Navegación principal alumno">
+        <a href="explorar.html" class="nav-item">
+          <span class="nav-ic" aria-hidden="true">🍽️</span>
+          <span>Explorar</span>
+        </a>
+        <a href="locales.html" class="nav-item">
+          <span class="nav-ic" aria-hidden="true">🏪</span>
+          <span>Locales</span>
+        </a>
+        <a href="pedidos.html" class="nav-item">
+          <span class="nav-ic" aria-hidden="true">🛍️</span>
+          <span>Pedidos</span><span class="nav-badge" aria-label="3 pendientes">3</span>
+        </a>
+        <a href="perfil.html" class="nav-item is-active" aria-current="page">
+          <span class="nav-ic" aria-hidden="true">👤</span>
+          <span>Perfil</span>
+        </a>
+      </nav>
+      
+
+      <a id="app-banner" class="notif-banner" role="alert" aria-live="polite">
+        <span style="font-size:20px" aria-hidden="true">🔔</span>
+        <div>
+          <strong data-banner-title style="display:block;font-size:13px">Notificación</strong>
+          <small data-banner-text>Aviso de demostración</small>
+        </div>
+      </a>
+
+      <div id="app-toast" class="toast" role="status" aria-live="polite"></div>
+    </div>
+    
+    <aside class="demo-dock" aria-label="Herramientas de demostración en escritorio">
+      <h2>🛠️ Herramientas de demo</h2>
+      <p>Prototipo visual estático · <strong>perfil.html</strong> · Hora ficticia: 18 nov, 12:30 h.</p>
+
+      <div class="dock-group">
+        <span class="dock-label">Controles visuales</span>
+        <button type="button" class="dock-btn" data-toggle-theme aria-pressed="false">
+          <span>🌓 Tema</span>
+          <span data-theme-label>Claro</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-test aria-pressed="false">
+          <span>⏱️ Modo test (CMA)</span>
+          <span data-test-label>Inactivo</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-empty>
+          <span>📭 Alternar estado vacío</span>
+          <span>Vista</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-empty-cart>
+          <span>🛒 Alternar carrito vacío</span>
+          <span>Carrito</span>
+        </button>
+      </div>
+
+      <div class="dock-group">
+        <span class="dock-label">Accesos rápidos</span>
+        <a href="index.html" class="dock-btn"><span>👋 Onboarding (index)</span><span>→</span></a>
+        <a href="explorar.html" class="dock-btn"><span>🍽️ Alumno · Explorar</span><span>→</span></a>
+        <a href="checkout.html" class="dock-btn"><span>💳 Checkout (PE-4821 · $140)</span><span>→</span></a>
+        <a href="pedido.html" class="dock-btn"><span>⏱️ Seguimiento (PE-4821)</span><span>→</span></a>
+        <a href="progreso.html" class="dock-btn"><span>🏆 Gamificación (220 pts)</span><span>→</span></a>
+        <a href="comercio-pedidos.html" class="dock-btn"><span>🏪 Comercio (Guich Iteso)</span><span>→</span></a>
+      </div>
+    </aside>
+  </div>
+
+  <script src="js/app.js" defer></script>
+  <script src="js/cuenta.js" defer></script>
+</body>
+</html>

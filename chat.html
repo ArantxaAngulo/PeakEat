@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1f4e3d" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1512" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f4e3d'/%3E%3Cpath d='M5 23l7-12 5 7 4-5 6 10H5z' fill='%23ffffff'/%3E%3Ccircle cx='23' cy='9' r='3' fill='%23eab308'/%3E%3C/svg%3E">
+  <title>Chat con Guich Iteso — Peak & Eat</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="chat" data-role="alumno">
+  <div class="stage">
+    <div class="phone-shell">
+      <div class="demo-strip">
+        <span>Demo visual · Dinero ficticio</span>
+        <span>18 nov · 12:30 h</span>
+      </div>
+
+      <div id="app-test-bar" class="test-bar" hidden>
+        <span>⏱ <strong data-test-time>0 s</strong></span>
+        <span>👆 <strong data-test-clicks>0</strong></span>
+        <span>Meta ≤120 s</span>
+        <button type="button" class="test-reset" data-reset-test>Reiniciar</button>
+      </div>
+      
+      <header class="app-header">
+        <div class="header-left">
+          <a href="pedido.html" class="header-back" aria-label="Regresar">←</a>
+          <div class="header-title">
+            <strong>Guich Iteso</strong>
+            <small>En línea · Folio PE-4821</small>
+          </div>
+        </div>
+        <div class="header-actions">
+          <a href="monedero.html" class="pill-wallet" aria-label="Mi monedero: $159">$159</a>
+          <a href="notificaciones.html" class="bell-btn" aria-label="Notificaciones: 2 sin leer">
+            <span aria-hidden="true">🔔</span>
+            <span class="badge-num">2</span>
+          </a>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <div class="chat-shell" data-chat-page>
+  <div class="chat-scroll" id="chat-scroll">
+    <div data-empty-content>
+      <div class="chat-feed" id="chat-feed" aria-live="polite">
+        <div class="chat-system">
+          <strong>Pedido PE-4821 · Guich Iteso</strong><br>
+          1× Panini artesanal + 1× Ensalada fresca · $183 · Nota: <em>Sin cebolla</em>
+        </div>
+
+        <div class="chat-bubble is-me">
+          <span>Hola, confirmo que el panini sea sin cebolla por favor.</span>
+          <span class="chat-meta">12:16 · ✓✓</span>
+        </div>
+
+        <div class="chat-bubble is-other">
+          <span>¡Claro Arantxa! Anotado sin cebolla 👍 Ya lo pusimos en la plancha.</span>
+          <span class="chat-meta">12:17</span>
+        </div>
+
+        <div class="chat-bubble is-me">
+          <span>Voy en camino hacia la barra Peak &amp; Eat.</span>
+          <span class="chat-meta">12:24 · ✓✓</span>
+        </div>
+      </div>
+
+      <div id="chat-typing" class="chat-typing" hidden>Guich Iteso está escribiendo…</div>
+
+      <div id="chat-readonly-alert" class="alert alert-info" hidden style="margin-top:12px">
+        <span aria-hidden="true">🔒</span>
+        <div><strong>Pedido recogido</strong> · Este chat está en modo solo lectura.</div>
+      </div>
+
+      <details class="demo-box" style="margin-top:12px">
+        <summary>🛠️ Opciones demo de chat</summary>
+        <div class="chip-wrap">
+          <button type="button" class="chip" id="chat-readonly-toggle" aria-pressed="false">Modo solo lectura (recogido)</button>
+        </div>
+      </details>
+    </div>
+
+    <section class="empty-state" data-empty-box hidden>
+      <div class="empty-icon" aria-hidden="true">💬</div>
+      <h2>Sin mensajes aún</h2>
+      <p>Envía una nota rápida a Guich Iteso si necesitas ajustar tu pedido.</p>
+      <button type="button" class="btn btn-primary btn-sm" data-toggle-empty>Volver a la conversación</button>
+    </section>
+  </div>
+
+  <div class="chat-quick" id="chat-quick" role="group" aria-label="Respuestas rápidas">
+    <button type="button" class="chip" data-quick-msg="Sin cebolla">Sin cebolla</button>
+    <button type="button" class="chip" data-quick-msg="Sin picante">Sin picante</button>
+    <button type="button" class="chip" data-quick-msg="Voy 5 min tarde">Voy 5 min tarde</button>
+    <button type="button" class="chip" data-quick-msg="Ya llegué">Ya llegué</button>
+    <button type="button" class="chip" data-quick-msg="¿Puedo cambiar mi bebida?">¿Puedo cambiar mi bebida?</button>
+    <button type="button" class="chip" data-quick-msg="Gracias">Gracias</button>
+  </div>
+
+  <div class="chat-counter" id="chat-counter">0 / 200</div>
+
+  <form class="chat-bar-input" id="chat-form" novalidate>
+    <label class="sr-only" for="chat-input">Mensaje para Guich Iteso</label>
+    <input id="chat-input" type="text" class="input" maxlength="200" placeholder="Escribe un mensaje (máx. 200)…" autocomplete="off">
+    <button type="submit" class="btn btn-primary btn-sm" id="chat-send-btn" style="min-height:44px;min-width:74px">Enviar</button>
+  </form>
+</div>
+      </main>
+      
+      
+
+      <a id="app-banner" class="notif-banner" role="alert" aria-live="polite">
+        <span style="font-size:20px" aria-hidden="true">🔔</span>
+        <div>
+          <strong data-banner-title style="display:block;font-size:13px">Notificación</strong>
+          <small data-banner-text>Aviso de demostración</small>
+        </div>
+      </a>
+
+      <div id="app-toast" class="toast" role="status" aria-live="polite"></div>
+    </div>
+    
+    <aside class="demo-dock" aria-label="Herramientas de demostración en escritorio">
+      <h2>🛠️ Herramientas de demo</h2>
+      <p>Prototipo visual estático · <strong>chat.html</strong> · Hora ficticia: 18 nov, 12:30 h.</p>
+
+      <div class="dock-group">
+        <span class="dock-label">Controles visuales</span>
+        <button type="button" class="dock-btn" data-toggle-theme aria-pressed="false">
+          <span>🌓 Tema</span>
+          <span data-theme-label>Claro</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-test aria-pressed="false">
+          <span>⏱️ Modo test (CMA)</span>
+          <span data-test-label>Inactivo</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-empty>
+          <span>📭 Alternar estado vacío</span>
+          <span>Vista</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-empty-cart>
+          <span>🛒 Alternar carrito vacío</span>
+          <span>Carrito</span>
+        </button>
+      </div>
+
+      <div class="dock-group">
+        <span class="dock-label">Accesos rápidos</span>
+        <a href="index.html" class="dock-btn"><span>👋 Onboarding (index)</span><span>→</span></a>
+        <a href="explorar.html" class="dock-btn"><span>🍽️ Alumno · Explorar</span><span>→</span></a>
+        <a href="checkout.html" class="dock-btn"><span>💳 Checkout (PE-4821 · $140)</span><span>→</span></a>
+        <a href="pedido.html" class="dock-btn"><span>⏱️ Seguimiento (PE-4821)</span><span>→</span></a>
+        <a href="progreso.html" class="dock-btn"><span>🏆 Gamificación (220 pts)</span><span>→</span></a>
+        <a href="comercio-pedidos.html" class="dock-btn"><span>🏪 Comercio (Guich Iteso)</span><span>→</span></a>
+      </div>
+    </aside>
+  </div>
+
+  <script src="js/app.js" defer></script>
+  <script src="js/pedidos.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1f4e3d" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1512" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f4e3d'/%3E%3Cpath d='M5 23l7-12 5 7 4-5 6 10H5z' fill='%23ffffff'/%3E%3Ccircle cx='23' cy='9' r='3' fill='%23eab308'/%3E%3C/svg%3E">
+  <title>Pedido programado PE-4822 — Peak & Eat</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="pedido-programado" data-role="alumno">
+  <div class="stage">
+    <div class="phone-shell">
+      <div class="demo-strip">
+        <span>Demo visual · Dinero ficticio</span>
+        <span>18 nov · 12:30 h</span>
+      </div>
+
+      <div id="app-test-bar" class="test-bar" hidden>
+        <span>⏱ <strong data-test-time>0 s</strong></span>
+        <span>👆 <strong data-test-clicks>0</strong></span>
+        <span>Meta ≤120 s</span>
+        <button type="button" class="test-reset" data-reset-test>Reiniciar</button>
+      </div>
+      
+      <header class="app-header">
+        <div class="header-left">
+          <a href="pedidos.html" class="header-back" aria-label="Regresar">←</a>
+          <div class="header-title">
+            <strong>Pedido PE-4822</strong>
+            <small>Guich Iteso · Programado 14:30</small>
+          </div>
+        </div>
+        <div class="header-actions">
+          <a href="monedero.html" class="pill-wallet" aria-label="Mi monedero: $159">$159</a>
+          <a href="notificaciones.html" class="bell-btn" aria-label="Notificaciones: 2 sin leer">
+            <span aria-hidden="true">🔔</span>
+            <span class="badge-num">2</span>
+          </a>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <div class="stack" data-scheduled-page>
+  <section class="card" id="sp-status-card" style="margin-bottom:0">
+    <div class="row">
+      <span class="tag tag-info" id="sp-badge">🕒 Programado · En espera</span>
+      <strong class="mono" style="color:var(--pri-tx)">PE-4822</strong>
+    </div>
+    <h1 id="sp-heading" style="margin-top:8px">Programado para <span data-sp-time>14:30</span> h</h1>
+    <p class="text-muted" id="sp-countdown" style="margin-top:4px">Faltan ~2 h 00 min · La preparación inicia a las 14:20 h.</p>
+
+    <div id="sp-refund-alert" class="alert alert-ok" role="status" hidden style="margin:12px 0 0">
+      <span aria-hidden="true">↩️</span>
+      <div>
+        <strong>Reembolso de $98 a tu monedero</strong>
+        <div style="font-size:12px;margin-top:2px">El monto ya regresó a tu saldo ficticio y se retiraron los puntos del pedido. <a href="monedero.html" class="link-inline">Ver monedero</a></div>
+      </div>
+    </div>
+  </section>
+
+  <div id="sp-policy-alert" class="alert alert-info" style="margin-bottom:0">
+    <span aria-hidden="true">ℹ️</span>
+    <div>
+      <strong>Cancelación gratuita garantizada</strong>
+      <div style="font-size:12px;margin-top:2px">Puedes cambiar la hora o cancelar sin costo hasta 10 min antes de la hora elegida (<span data-sp-cutoff>14:20</span> h).</div>
+    </div>
+  </div>
+
+  <section class="card" style="margin-bottom:0">
+    <h3 style="margin-bottom:8px">Resumen del pedido</h3>
+    <div class="total-row"><span>1× Panini artesanal de pavo y panela</span><span>$98</span></div>
+    <div class="total-final"><span>Total (Monedero)</span><span>$98</span></div>
+    <p class="text-muted" style="margin-top:6px">📍 Guich Iteso · Periférico Sur 3880 (Horario 08:00–18:00 h)</p>
+  </section>
+
+  <section class="card" style="margin-bottom:0">
+    <h3 style="margin-bottom:8px">Gestionar pedido</h3>
+    <div class="stack-sm">
+      <button type="button" class="btn btn-primary" id="sp-edit-btn" data-open-sheet="sheet-editar-hora">🕒 Cambiar hora</button>
+      <button type="button" class="btn btn-danger-soft" id="sp-cancel-btn" data-open-sheet="sheet-cancelar">Cancelar sin costo</button>
+      <div class="row" style="gap:8px;margin-top:4px">
+        <a href="chat.html" class="btn btn-secondary" style="flex:1">💬 Chat</a>
+        <a href="ayuda.html" class="btn btn-secondary" style="flex:1">❓ Ayuda</a>
+      </div>
+    </div>
+  </section>
+</div>
+      </main>
+      
+      <div id="sheet-editar-hora" class="sheet-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="eh-title">
+  <div class="sheet">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <div class="sheet-head">
+      <div>
+        <span class="tag tag-info">Guich Iteso · 08:00–18:00 h</span>
+        <h2 id="eh-title" style="margin-top:4px">Cambiar hora de recogida</h2>
+      </div>
+      <button type="button" class="sheet-close" data-close-sheet aria-label="Cerrar cambiar hora">✕</button>
+    </div>
+    <form id="sp-edit-form" novalidate>
+      <span class="field-label">Atajos de salida de clase (ahora: 12:30 h)</span>
+      <div class="slot-grid">
+        <button type="button" class="slot-btn" disabled aria-label="10:00 pasada">10:00<small>Pasada</small></button>
+        <button type="button" class="slot-btn" disabled aria-label="11:30 pasada">11:30<small>Pasada</small></button>
+        <button type="button" class="slot-btn" data-sp-slot="13:00">13:00<small>Disponible</small></button>
+        <button type="button" class="slot-btn is-active" data-sp-slot="14:30">14:30<small>Actual</small></button>
+        <button type="button" class="slot-btn" data-sp-slot="16:00">16:00<small>Disponible</small></button>
+      </div>
+
+      <div class="field" data-field="spTime">
+        <label class="field-label" for="sp-time-select">Hora exacta</label>
+        <select id="sp-time-select" class="select" aria-describedby="sp-time-err">
+          <option value="11:30">11:30 h (hora pasada)</option>
+          <option value="13:00">13:00 h</option>
+          <option value="13:30">13:30 h</option>
+          <option value="14:30" selected>14:30 h</option>
+          <option value="15:30">15:30 h</option>
+          <option value="16:00">16:00 h</option>
+          <option value="17:30">17:30 h</option>
+          <option value="18:30">18:30 h (fuera de horario)</option>
+        </select>
+        <span id="sp-time-err" class="field-error" role="alert">Elige una hora futura dentro del horario de Guich Iteso (12:50–17:45 h).</span>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Guardar nueva hora</button>
+    </form>
+  </div>
+</div>
+
+<div id="sheet-cancelar" class="sheet-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="sp-cancel-title">
+  <div class="sheet">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <div class="sheet-head">
+      <div>
+        <span class="tag tag-ok">Sin penalización</span>
+        <h2 id="sp-cancel-title" style="margin-top:4px">¿Cancelar PE-4822?</h2>
+      </div>
+      <button type="button" class="sheet-close" data-close-sheet aria-label="Cerrar cancelación">✕</button>
+    </div>
+    <form id="sp-cancel-form" novalidate>
+      <p class="text-muted" style="margin-bottom:10px">Tu pedido aún no entra a cocina. Recibirás un <strong>reembolso de $98</strong> directo en tu monedero.</p>
+      <div class="field">
+        <label class="field-label" for="sp-cancel-reason">¿Por qué cancelas?</label>
+        <select id="sp-cancel-reason" class="select">
+          <option>Cambié de opinión</option>
+          <option>Me equivoqué de pedido</option>
+          <option>Ya no llego</option>
+          <option>Tarda demasiado</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <div class="stack-sm">
+        <button type="submit" class="btn btn-danger">Confirmar cancelación</button>
+        <button type="button" class="btn btn-secondary" data-close-sheet>Mantener mi pedido</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+      <a id="app-banner" class="notif-banner" role="alert" aria-live="polite">
+        <span style="font-size:20px" aria-hidden="true">🔔</span>
+        <div>
+          <strong data-banner-title style="display:block;font-size:13px">Notificación</strong>
+          <small data-banner-text>Aviso de demostración</small>
+        </div>
+      </a>
+
+      <div id="app-toast" class="toast" role="status" aria-live="polite"></div>
+    </div>
+    
+    <aside class="demo-dock" aria-label="Herramientas de demostración en escritorio">
+      <h2>🛠️ Herramientas de demo</h2>
+      <p>Prototipo visual estático · <strong>pedido-programado.html</strong> · Hora ficticia: 18 nov, 12:30 h.</p>
+
+      <div class="dock-group">
+        <span class="dock-label">Controles visuales</span>
+        <button type="button" class="dock-btn" data-toggle-theme aria-pressed="false">
+          <span>🌓 Tema</span>
+          <span data-theme-label>Claro</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-test aria-pressed="false">
+          <span>⏱️ Modo test (CMA)</span>
+          <span data-test-label>Inactivo</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-empty>
+          <span>📭 Alternar estado vacío</span>
+          <span>Vista</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-empty-cart>
+          <span>🛒 Alternar carrito vacío</span>
+          <span>Carrito</span>
+        </button>
+      </div>
+
+      <div class="dock-group">
+        <span class="dock-label">Accesos rápidos</span>
+        <a href="index.html" class="dock-btn"><span>👋 Onboarding (index)</span><span>→</span></a>
+        <a href="explorar.html" class="dock-btn"><span>🍽️ Alumno · Explorar</span><span>→</span></a>
+        <a href="checkout.html" class="dock-btn"><span>💳 Checkout (PE-4821 · $140)</span><span>→</span></a>
+        <a href="pedido.html" class="dock-btn"><span>⏱️ Seguimiento (PE-4821)</span><span>→</span></a>
+        <a href="progreso.html" class="dock-btn"><span>🏆 Gamificación (220 pts)</span><span>→</span></a>
+        <a href="comercio-pedidos.html" class="dock-btn"><span>🏪 Comercio (Guich Iteso)</span><span>→</span></a>
+      </div>
+    </aside>
+  </div>
+
+  <script src="js/app.js" defer></script>
+  <script src="js/pedidos.js" defer></script>
+</body>
+</html>

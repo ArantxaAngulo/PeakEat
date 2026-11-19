@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1f4e3d" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1512" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f4e3d'/%3E%3Cpath d='M5 23l7-12 5 7 4-5 6 10H5z' fill='%23ffffff'/%3E%3Ccircle cx='23' cy='9' r='3' fill='%23eab308'/%3E%3C/svg%3E">
+  <title>Explorar — Peak & Eat</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="explorar" data-role="alumno">
+  <div class="stage">
+    <div class="phone-shell">
+      <div class="demo-strip">
+        <span>Demo visual · Dinero ficticio</span>
+        <span>18 nov · 12:30 h</span>
+      </div>
+
+      <div id="app-test-bar" class="test-bar" hidden>
+        <span>⏱ <strong data-test-time>0 s</strong></span>
+        <span>👆 <strong data-test-clicks>0</strong></span>
+        <span>Meta ≤120 s</span>
+        <button type="button" class="test-reset" data-reset-test>Reiniciar</button>
+      </div>
+      
+      <header class="app-header">
+        <div class="header-brand">
+          <strong>Peak &amp; Eat</strong>
+          <small>📍 ITESO · 12:30 h</small>
+        </div>
+        <div class="header-actions">
+          <a href="progreso.html" class="pill-pts" aria-label="Mis puntos: 220 puntos">⭐ 220 pts</a>
+          <a href="monedero.html" class="pill-wallet" aria-label="Mi monedero: 159 pesos">$159</a>
+          <a href="notificaciones.html" class="bell-btn" aria-label="Notificaciones: 2 sin leer">
+            <span aria-hidden="true">🔔</span>
+            <span class="badge-num">2</span>
+          </a>
+        </div>
+      </header>
+
+      <main class="app-main has-nav has-cart">
+        <div data-catalog-page>
+  <div data-empty-content>
+    <section style="margin-bottom:12px">
+      <h1>Buenas tardes, Arantxa 👋</h1>
+      <p class="text-muted" style="margin-top:3px">¿Qué se te antoja? Filtra por tiempo y presupuesto.</p>
+    </section>
+
+    <section aria-label="Pide de nuevo">
+      <div class="section-head" style="margin-top:0">
+        <h3>Pide de nuevo</h3>
+        <a href="favoritos.html" class="link-inline" style="font-size:12.5px">Favoritos y combos</a>
+      </div>
+      <div class="reorder-rail">
+        <article class="card-reorder">
+          <div class="row">
+            <span class="tag tag-warn">⏸️ Pausado 15 min</span>
+            <span class="mono" style="font-size:11px;color:var(--mu)">PE-4790</span>
+          </div>
+          <strong style="font-size:13.5px">🍛 Comida corrida casera</strong>
+          <small>La Cocina de la Esquina · $95</small>
+          <button type="button" class="btn btn-secondary btn-sm" style="margin-top:auto" disabled aria-label="No disponible: La Cocina de la Esquina está pausado 15 min">Local pausado 15 min</button>
+        </article>
+
+        <article class="card-reorder">
+          <div class="row">
+            <span class="tag tag-ok">⚡ 4 min</span>
+            <span class="mono" style="font-size:11px;color:var(--mu)">PE-4785</span>
+          </div>
+          <strong style="font-size:13.5px">🌮 5 tacos de canasta + bebida</strong>
+          <small>Tacos de Canasta Jorgillo · $65</small>
+          <button type="button" class="btn btn-primary btn-sm" style="margin-top:auto" data-reorder-id="1">Repetir · $65</button>
+        </article>
+      </div>
+    </section>
+
+    <div class="search-box">
+      <span aria-hidden="true">🔍</span>
+      <label class="sr-only" for="cat-search">Buscar platillos o locales</label>
+      <input id="cat-search" type="search" placeholder="Buscar Guich, Jorgillo, Tarascos, comida…" data-cat-search>
+    </div>
+
+    <div class="chip-row" role="group" aria-label="Categorías" data-filter-group="cat">
+      <button type="button" class="chip is-active" data-filter-val="ALL" aria-pressed="true">Todo</button>
+      <button type="button" class="chip" data-filter-val="FAV" aria-pressed="false">❤️ Favoritos</button>
+      <button type="button" class="chip" data-filter-val="COMPAT" aria-pressed="false">✅ Compatible conmigo</button>
+      <button type="button" class="chip" data-filter-val="Bowls" aria-pressed="false">Bowls</button>
+      <button type="button" class="chip" data-filter-val="Sándwiches" aria-pressed="false">Sándwiches</button>
+      <button type="button" class="chip" data-filter-val="Comida corrida" aria-pressed="false">Comida corrida</button>
+      <button type="button" class="chip" data-filter-val="Tacos y burritos" aria-pressed="false">Tacos y burritos</button>
+    </div>
+
+    <section class="filter-card" aria-label="Filtros rápidos">
+      <div class="filter-label">Presupuesto máximo</div>
+      <div class="chip-row" role="group" aria-label="Presupuesto máximo" data-filter-group="budget">
+        <button type="button" class="chip" data-filter-val="90" aria-pressed="false">$90</button>
+        <button type="button" class="chip" data-filter-val="120" aria-pressed="false">$120</button>
+        <button type="button" class="chip" data-filter-val="150" aria-pressed="false">$150</button>
+        <button type="button" class="chip is-active" data-filter-val="999" aria-pressed="true">Sin límite</button>
+      </div>
+
+      <div class="filter-label">Tiempo total (caminata + espera)</div>
+      <div class="chip-row" role="group" aria-label="Tiempo máximo" data-filter-group="time">
+        <button type="button" class="chip" data-filter-val="10" aria-pressed="false">≤ 10 min</button>
+        <button type="button" class="chip" data-filter-val="15" aria-pressed="false">≤ 15 min</button>
+        <button type="button" class="chip" data-filter-val="25" aria-pressed="false">≤ 25 min</button>
+        <button type="button" class="chip is-active" data-filter-val="99" aria-pressed="true">Sin límite</button>
+      </div>
+
+      <div class="filter-label">Zona</div>
+      <div class="chip-row" style="margin-bottom:0" role="group" aria-label="Zona o proteína" data-filter-group="zone">
+        <button type="button" class="chip is-active" data-filter-val="ALL" aria-pressed="true">Todas</button>
+        <button type="button" class="chip" data-filter-val="ITESO" aria-pressed="false">En campus / Periférico</button>
+        <button type="button" class="chip" data-filter-val="EXTERIOR" aria-pressed="false">Camino al ITESO / Sur</button>
+        <button type="button" class="chip" data-filter-val="PRO" aria-pressed="false">+30 g proteína</button>
+      </div>
+    </section>
+
+    <div id="local-filter-row" class="chip-row" hidden>
+      <button type="button" class="chip is-active" id="local-filter-chip" data-clear-local>Solo local ✕</button>
+    </div>
+
+    <div class="sort-bar">
+      <strong id="cat-count" aria-live="polite">9 opciones</strong>
+      <label class="sr-only" for="cat-sort">Ordenar resultados</label>
+      <select id="cat-sort" class="sort-select" data-cat-sort>
+        <option value="fast">Más rápido</option>
+        <option value="cheap">Más barato</option>
+        <option value="prot">Más proteína</option>
+        <option value="rate">Mejor calificado</option>
+      </select>
+    </div>
+
+    <div id="dish-list" class="stack-sm">
+      <!-- #1 Tacos de Canasta Jorgillo -->
+      <article class="card-dish" data-dish-card
+        data-id="1" data-emoji="🌮" data-title="Orden de 5 tacos de canasta + bebida"
+        data-vendor-id="jg" data-vendor="Tacos de Canasta Jorgillo"
+        data-address="Cafetería Pedro Arrupe ITESO (barra Peak & Eat)" data-hours="08:30–20:00 h"
+        data-cat="Tacos y burritos" data-zone="ITESO" data-price="65" data-time="4" data-prep="2" data-walk="2"
+        data-prot="18" data-kcal="480" data-rate="4.9" data-reviews="89"
+        data-desc="Tacos de canasta al vapor servidos al instante (chicharrón prensado, papa, frijol y adobo) con salsa verde casera."
+        data-allergens="Sin cacahuate · Compatible con tu perfil" data-compatible="true" data-available="true" data-fav="true">
+        <button type="button" class="dish-open-btn" data-open-dish="1">
+          <div class="dish-thumb" style="background:#fef3c7" aria-hidden="true">🌮</div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <span class="dish-title">Orden de 5 tacos de canasta + bebida</span>
+              <span class="price-badge">$65</span>
+            </div>
+            <div class="dish-meta"><span class="dot"></span>Tacos de Canasta Jorgillo · ★ 4.9</div>
+            <div class="dish-tags">
+              <span class="tag tag-ok">⚡ 4 min</span>
+              <span class="tag tag-info">En campus</span>
+              <span class="tag">18 g prot · 480 kcal</span>
+            </div>
+          </div>
+        </button>
+        <button type="button" class="dish-fav" data-fav-btn="1" aria-label="Quitar de favoritos" aria-pressed="true">❤️</button>
+        <button type="button" class="dish-add" data-add-dish="1" aria-label="Agregar Orden de 5 tacos de canasta al carrito">+</button>
+      </article>
+
+      <!-- #2 Guich Iteso — Panini -->
+      <article class="card-dish" data-dish-card
+        data-id="2" data-emoji="🥪" data-title="Panini artesanal de pavo y panela"
+        data-vendor-id="gu" data-vendor="Guich Iteso"
+        data-address="Periférico Sur 3880 (Frente al campus, barra Peak & Eat)" data-hours="08:00–18:00 h"
+        data-cat="Sándwiches" data-zone="ITESO" data-price="98" data-time="9" data-prep="4" data-walk="5"
+        data-prot="28" data-kcal="460" data-rate="4.2" data-reviews="90"
+        data-desc="Pan recién tostado en plancha con pechuga de pavo, queso panela, jitomate, espinaca y aderezo de la casa."
+        data-allergens="Contiene gluten y lácteos · Sin cacahuate (compatible contigo)" data-compatible="true" data-available="true" data-fav="true">
+        <button type="button" class="dish-open-btn" data-open-dish="2">
+          <div class="dish-thumb" style="background:#dbeafe" aria-hidden="true">🥪</div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <span class="dish-title">Panini artesanal de pavo y panela</span>
+              <span class="price-badge">$98</span>
+            </div>
+            <div class="dish-meta"><span class="dot"></span>Guich Iteso · ★ 4.2</div>
+            <div class="dish-tags">
+              <span class="tag tag-ok">⚡ 9 min</span>
+              <span class="tag tag-info">En campus</span>
+              <span class="tag">28 g prot · 460 kcal</span>
+            </div>
+          </div>
+        </button>
+        <button type="button" class="dish-fav" data-fav-btn="2" aria-label="Quitar de favoritos" aria-pressed="true">❤️</button>
+        <button type="button" class="dish-add" data-add-dish="2" aria-label="Agregar Panini artesanal de pavo y panela al carrito">+</button>
+      </article>
+
+      <!-- #3 Guich Iteso — Ensalada -->
+      <article class="card-dish" data-dish-card
+        data-id="3" data-emoji="🥗" data-title="Ensalada fresca con pollo a la plancha"
+        data-vendor-id="gu" data-vendor="Guich Iteso"
+        data-address="Periférico Sur 3880 (Frente al campus, barra Peak & Eat)" data-hours="08:00–18:00 h"
+        data-cat="Bowls" data-zone="ITESO" data-price="110" data-time="9" data-prep="4" data-walk="5"
+        data-prot="34" data-kcal="440" data-rate="4.2" data-reviews="90"
+        data-desc="Mix de lechugas, pechuga de pollo sazonada, aguacate, arándanos, semillas, crutones y vinagreta."
+        data-allergens="Sin cacahuate · Compatible con tu perfil" data-compatible="true" data-available="true" data-fav="false">
+        <button type="button" class="dish-open-btn" data-open-dish="3">
+          <div class="dish-thumb" style="background:#dcfce7" aria-hidden="true">🥗</div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <span class="dish-title">Ensalada fresca con pollo a la plancha</span>
+              <span class="price-badge">$110</span>
+            </div>
+            <div class="dish-meta"><span class="dot"></span>Guich Iteso · ★ 4.2</div>
+            <div class="dish-tags">
+              <span class="tag tag-ok">⚡ 9 min</span>
+              <span class="tag tag-info">En campus</span>
+              <span class="tag">34 g prot · 440 kcal</span>
+            </div>
+          </div>
+        </button>
+        <button type="button" class="dish-fav" data-fav-btn="3" aria-label="Agregar a favoritos" aria-pressed="false">🤍</button>
+        <button type="button" class="dish-add" data-add-dish="3" aria-label="Agregar Ensalada fresca con pollo a la plancha al carrito">+</button>
+      </article>
+
+      <!-- #4 LECHADA ITESO — Bowl (aviso cacahuate) -->
+      <article class="card-dish" data-dish-card
+        data-id="4" data-emoji="🥣" data-title="Bowl proteico & smoothie energético"
+        data-vendor-id="lc" data-vendor="LECHADA ITESO"
+        data-address="Av. Camino al ITESO 8636 (Easyfit)" data-hours="07:30–21:00 h"
+        data-cat="Bowls" data-zone="EXTERIOR" data-price="115" data-time="10" data-prep="5" data-walk="5"
+        data-prot="32" data-kcal="490" data-rate="4.5" data-reviews="150"
+        data-desc="Base saludable con proteína, fruta fresca, semillas, granola artesanal con trazas de cacahuate y bebida funcional."
+        data-allergens="⚠️ Contiene cacahuate/semillas — choca con tu preferencia Sin cacahuate" data-compatible="false" data-available="true" data-fav="false">
+        <button type="button" class="dish-open-btn" data-open-dish="4">
+          <div class="dish-thumb" style="background:#fae8ff" aria-hidden="true">🥣</div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <span class="dish-title">Bowl proteico &amp; smoothie energético</span>
+              <span class="price-badge">$115</span>
+            </div>
+            <div class="dish-meta"><span class="dot"></span>LECHADA ITESO · ★ 4.5</div>
+            <div class="dish-tags">
+              <span class="tag tag-ok">⚡ 10 min</span>
+              <span class="tag tag-warn">🥜 Contiene cacahuate</span>
+              <span class="tag">32 g prot · 490 kcal</span>
+            </div>
+          </div>
+        </button>
+        <button type="button" class="dish-fav" data-fav-btn="4" aria-label="Agregar a favoritos" aria-pressed="false">🤍</button>
+        <button type="button" class="dish-add" data-add-dish="4" aria-label="Agregar Bowl proteico al carrito">+</button>
+      </article>
+
+      <!-- #5 LECHADA ITESO — Wrap -->
+      <article class="card-dish" data-dish-card
+        data-id="5" data-emoji="🌯" data-title="Wrap vegetariano de hummus y vegetales"
+        data-vendor-id="lc" data-vendor="LECHADA ITESO"
+        data-address="Av. Camino al ITESO 8636 (Easyfit)" data-hours="07:30–21:00 h"
+        data-cat="Sándwiches" data-zone="EXTERIOR" data-price="95" data-time="9" data-prep="5" data-walk="4"
+        data-prot="22" data-kcal="410" data-rate="4.5" data-reviews="150"
+        data-desc="Tortilla integral rellena de hummus, aguacate, espinaca, pepino y proteína vegetal (opción vegana)."
+        data-allergens="Vegetariano / Vegano · Sin cacahuate (compatible contigo)" data-compatible="true" data-available="true" data-fav="true">
+        <button type="button" class="dish-open-btn" data-open-dish="5">
+          <div class="dish-thumb" style="background:#f3e8ff" aria-hidden="true">🌯</div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <span class="dish-title">Wrap vegetariano de hummus y vegetales</span>
+              <span class="price-badge">$95</span>
+            </div>
+            <div class="dish-meta"><span class="dot"></span>LECHADA ITESO · ★ 4.5</div>
+            <div class="dish-tags">
+              <span class="tag tag-ok">⚡ 9 min</span>
+              <span class="tag tag-info">Exterior</span>
+              <span class="tag">22 g prot · 410 kcal</span>
+            </div>
+          </div>
+        </button>
+        <button type="button" class="dish-fav" data-fav-btn="5" aria-label="Quitar de favoritos" aria-pressed="true">❤️</button>
+        <button type="button" class="dish-add" data-add-dish="5" aria-label="Agregar Wrap vegetariano al carrito">+</button>
+      </article>
+
+      <!-- #6 Los Tarascos — Tacos pastor -->
+      <article class="card-dish" data-dish-card
+        data-id="6" data-emoji="🥩" data-title="Orden de 4 tacos al pastor o bistec"
+        data-vendor-id="tr" data-vendor="Tacos Los Tarascos | ITESO"
+        data-address="Av. Camino al ITESO #21" data-hours="09:00–24:00 h"
+        data-cat="Tacos y burritos" data-zone="EXTERIOR" data-price="96" data-time="11" data-prep="5" data-walk="6"
+        data-prot="36" data-kcal="580" data-rate="3.9" data-reviews="926"
+        data-desc="Tacos tradicionales en tortilla recién hecha con piña, cilantro, cebolla, limones y salsas."
+        data-allergens="Sin gluten · Sin cacahuate (compatible contigo)" data-compatible="true" data-available="true" data-fav="false">
+        <button type="button" class="dish-open-btn" data-open-dish="6">
+          <div class="dish-thumb" style="background:#ffedd5" aria-hidden="true">🥩</div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <span class="dish-title">Orden de 4 tacos al pastor o bistec</span>
+              <span class="price-badge">$96</span>
+            </div>
+            <div class="dish-meta"><span class="dot"></span>Tacos Los Tarascos | ITESO · ★ 3.9</div>
+            <div class="dish-tags">
+              <span class="tag tag-ok">⚡ 11 min</span>
+              <span class="tag tag-info">Exterior</span>
+              <span class="tag">36 g prot · 580 kcal</span>
+            </div>
+          </div>
+        </button>
+        <button type="button" class="dish-fav" data-fav-btn="6" aria-label="Agregar a favoritos" aria-pressed="false">🤍</button>
+        <button type="button" class="dish-add" data-add-dish="6" aria-label="Agregar Orden de 4 tacos al pastor al carrito">+</button>
+      </article>
+
+      <!-- #7 Los Tarascos — Gringa (AGOTADO hasta 13:30) -->
+      <article class="card-dish is-soldout" data-dish-card
+        data-id="7" data-emoji="🧀" data-title="Gringa o alambre de pastor con queso"
+        data-vendor-id="tr" data-vendor="Tacos Los Tarascos | ITESO"
+        data-address="Av. Camino al ITESO #21" data-hours="09:00–24:00 h"
+        data-cat="Tacos y burritos" data-zone="EXTERIOR" data-price="125" data-time="12" data-prep="5" data-walk="7"
+        data-prot="42" data-kcal="670" data-rate="3.9" data-reviews="926"
+        data-desc="Carne al pastor o bistec a la plancha con queso fundido en tortilla de harina."
+        data-allergens="Contiene gluten y lácteos · Sin cacahuate" data-compatible="true"
+        data-available="false" data-reason="Agotado por 1 hora · Vuelve a las 13:30 h" data-fav="false">
+        <button type="button" class="dish-open-btn" data-open-dish="7">
+          <div class="dish-thumb" style="background:#fee2e2" aria-hidden="true">🧀</div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <span class="dish-title">Gringa o alambre de pastor con queso</span>
+              <span class="price-badge">$125</span>
+            </div>
+            <div class="dish-meta"><span class="dot"></span>Tacos Los Tarascos | ITESO · ★ 3.9</div>
+            <div class="dish-tags">
+              <span class="tag tag-bad">Agotado hasta 13:30</span>
+              <span class="tag">42 g prot · 670 kcal</span>
+            </div>
+          </div>
+        </button>
+        <button type="button" class="dish-fav" data-fav-btn="7" aria-label="Agregar a favoritos" aria-pressed="false">🤍</button>
+        <button type="button" class="dish-add" disabled aria-label="No disponible: agotado hasta 13:30">+</button>
+      </article>
+
+      <!-- #8 La Cocina de la Esquina — Pausado 15 min -->
+      <article class="card-dish is-soldout" data-dish-card
+        data-id="8" data-emoji="🍛" data-title="Comida corrida casera (2 tiempos)"
+        data-vendor-id="ce" data-vendor="La Cocina de la Esquina"
+        data-address="Monte Carmelo 554 (Haciendas de San José)" data-hours="09:00–17:00 h"
+        data-cat="Comida corrida" data-zone="EXTERIOR" data-price="95" data-time="11" data-prep="6" data-walk="5"
+        data-prot="35" data-kcal="610" data-rate="4.8" data-reviews="24"
+        data-desc="Sopa o arroz del día + plato fuerte casero a elegir con guarnición de frijoles, ensalada y tortillas."
+        data-allergens="Sin cacahuate · Compatible con tu perfil" data-compatible="true"
+        data-available="false" data-reason="Local pausado 15 min por alta demanda" data-fav="false">
+        <button type="button" class="dish-open-btn" data-open-dish="8">
+          <div class="dish-thumb" style="background:#fef9c3" aria-hidden="true">🍛</div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <span class="dish-title">Comida corrida casera (2 tiempos)</span>
+              <span class="price-badge">$95</span>
+            </div>
+            <div class="dish-meta"><span class="dot is-warn"></span>La Cocina de la Esquina · ★ 4.8</div>
+            <div class="dish-tags">
+              <span class="tag tag-warn">Pausado 15 min</span>
+              <span class="tag">35 g prot · 610 kcal</span>
+            </div>
+          </div>
+        </button>
+        <button type="button" class="dish-fav" data-fav-btn="8" aria-label="Agregar a favoritos" aria-pressed="false">🤍</button>
+        <button type="button" class="dish-add" disabled aria-label="No disponible: local pausado 15 minutos">+</button>
+      </article>
+
+      <!-- #9 D' Eli — Cerrado hoy -->
+      <article class="card-dish is-soldout" data-dish-card
+        data-id="9" data-emoji="🍲" data-title="Menú ejecutivo casero + agua fresca"
+        data-vendor-id="de" data-vendor="D' Eli, comida corrida"
+        data-address="Calle Dátil, San Sebastianito" data-hours="08:30–15:30 h (Cerrado hoy)"
+        data-cat="Comida corrida" data-zone="EXTERIOR" data-price="90" data-time="12" data-prep="7" data-walk="5"
+        data-prot="33" data-kcal="590" data-rate="4.7" data-reviews="22"
+        data-desc="Entrada del día, guisado casero recién hecho, tortillas calientes y vaso de agua de fruta natural."
+        data-allergens="Sin cacahuate · Compatible con tu perfil" data-compatible="true"
+        data-available="false" data-reason="Local cerrado hoy · Vuelve mañana 08:30 h" data-fav="false">
+        <button type="button" class="dish-open-btn" data-open-dish="9">
+          <div class="dish-thumb" style="background:#e0f2fe" aria-hidden="true">🍲</div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <span class="dish-title">Menú ejecutivo casero + agua fresca</span>
+              <span class="price-badge">$90</span>
+            </div>
+            <div class="dish-meta"><span class="dot is-off"></span>D' Eli, comida corrida · ★ 4.7</div>
+            <div class="dish-tags">
+              <span class="tag tag-muted">Cerrado hoy</span>
+              <span class="tag">33 g prot · 590 kcal</span>
+            </div>
+          </div>
+        </button>
+        <button type="button" class="dish-fav" data-fav-btn="9" aria-label="Agregar a favoritos" aria-pressed="false">🤍</button>
+        <button type="button" class="dish-add" disabled aria-label="No disponible: local cerrado hoy">+</button>
+      </article>
+    </div>
+
+    <section id="cat-no-results" class="empty-state" hidden>
+      <div class="empty-icon" aria-hidden="true">🔍</div>
+      <h2>Nada con esta combinación</h2>
+      <p>Prueba ampliando el presupuesto o el tiempo, o quita los filtros activos.</p>
+      <button type="button" class="btn btn-primary btn-sm" data-reset-filters>Quitar filtros</button>
+    </section>
+  </div>
+
+  <section class="empty-state" data-empty-box hidden>
+    <div class="empty-icon" aria-hidden="true">🍽️</div>
+    <h2>No hay platillos disponibles</h2>
+    <p>Ningún comercio tiene opciones abiertas con tus filtros actuales.</p>
+    <button type="button" class="btn btn-primary btn-sm" data-toggle-empty>Volver al catálogo</button>
+  </section>
+</div>
+      </main>
+      
+      <nav class="bottom-nav" aria-label="Navegación principal alumno">
+        <a href="explorar.html" class="nav-item is-active" aria-current="page">
+          <span class="nav-ic" aria-hidden="true">🍽️</span>
+          <span>Explorar</span>
+        </a>
+        <a href="locales.html" class="nav-item">
+          <span class="nav-ic" aria-hidden="true">🏪</span>
+          <span>Locales</span>
+        </a>
+        <a href="pedidos.html" class="nav-item">
+          <span class="nav-ic" aria-hidden="true">🛍️</span>
+          <span>Pedidos</span><span class="nav-badge" aria-label="3 pendientes">3</span>
+        </a>
+        <a href="perfil.html" class="nav-item">
+          <span class="nav-ic" aria-hidden="true">👤</span>
+          <span>Perfil</span>
+        </a>
+      </nav>
+      <button type="button" class="cart-bar" id="floating-cart-bar" data-open-sheet="sheet-carrito" aria-label="Ver carrito con 2 productos por 208 pesos">
+  <span class="cart-count" data-cart-count>2</span>
+  <span>Ver carrito</span>
+  <span class="cart-total" data-cart-total>$208</span>
+</button>
+
+<div id="sheet-platillo" class="sheet-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="sd-title">
+  <div class="sheet">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <div class="sheet-head">
+      <div>
+        <span class="tag tag-info" id="sd-vendor">Guich Iteso</span>
+        <h2 id="sd-title" style="margin-top:6px">Panini artesanal de pavo y panela</h2>
+        <small id="sd-rate">★ 4.2 · 90 reseñas en Google Maps</small>
+      </div>
+      <button type="button" class="sheet-close" data-close-sheet aria-label="Cerrar detalle">✕</button>
+    </div>
+
+    <div class="macro-grid">
+      <div class="macro-box"><strong id="sd-price">$98</strong><span>Precio</span></div>
+      <div class="macro-box"><strong id="sd-time">9 min</strong><span id="sd-time-sub">4 prep + 5 a pie</span></div>
+      <div class="macro-box"><strong id="sd-prot">28 g</strong><span id="sd-kcal">460 kcal</span></div>
+    </div>
+
+    <p id="sd-desc" style="font-size:14px;margin-bottom:12px"></p>
+
+    <div id="sd-allergen-box" class="alert alert-info" style="margin-bottom:10px">
+      <span aria-hidden="true">ℹ️</span>
+      <div id="sd-allergens">Sin cacahuate · Compatible con tu perfil</div>
+    </div>
+
+    <div id="sd-unavail-box" class="alert alert-bad" hidden style="margin-bottom:10px">
+      <span aria-hidden="true">⛔</span>
+      <div id="sd-unavail-reason">No disponible por el momento.</div>
+    </div>
+
+    <p class="text-muted" id="sd-location" style="margin-bottom:16px">📍 Periférico Sur 3880 · 08:00–18:00 h</p>
+
+    <div class="row" style="gap:8px">
+      <button type="button" class="btn btn-secondary btn-sm" id="sd-fav-btn" aria-label="Guardar en favoritos">❤️ Favorito</button>
+      <button type="button" class="btn btn-primary" id="sd-add-btn">Agregar al carrito · $98</button>
+    </div>
+  </div>
+</div>
+
+<div id="sheet-carrito" class="sheet-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="sc-title">
+  <div class="sheet">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <div class="sheet-head">
+      <div>
+        <h2 id="sc-title">Tu carrito</h2>
+        <small data-cart-vendor-label>Guich Iteso · Pedido PE-4821</small>
+      </div>
+      <button type="button" class="sheet-close" data-close-sheet aria-label="Cerrar carrito">✕</button>
+    </div>
+
+    <div id="cart-filled-body">
+      <div id="cart-multivendor-alert" class="alert alert-warn" hidden>
+        <span aria-hidden="true">🏪</span>
+        <div>Tu pedido incluye <strong>2 comercios</strong>: recogerás en la barra Peak &amp; Eat de cada uno.</div>
+      </div>
+
+      <div id="cart-lines-list"></div>
+
+      <div class="card" style="margin-top:12px;background:var(--bg)">
+        <div class="total-row"><span>Subtotal</span><strong data-cart-subtotal>$208</strong></div>
+        <small>Puedes aplicar tu cupón de −$25 y elegir horario en el siguiente paso.</small>
+      </div>
+
+      <a href="checkout.html" class="btn btn-primary" style="margin-top:10px">Continuar al checkout</a>
+      <button type="button" class="btn btn-ghost" style="margin-top:4px" data-toggle-empty-cart>Simular carrito vacío</button>
+    </div>
+
+    <div id="cart-empty-body" class="empty-state" hidden style="margin:6px 0 0">
+      <div class="empty-icon" aria-hidden="true">🛒</div>
+      <h3>Tu carrito está vacío</h3>
+      <p>Toca el botón + de cualquier platillo disponible para apartarlo sin filas.</p>
+      <div class="stack-sm">
+        <button type="button" class="btn btn-primary btn-sm" data-close-sheet>Explorar comida</button>
+        <button type="button" class="btn btn-ghost btn-sm" data-restore-cart>Restaurar carrito demo (PE-4821)</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <a id="app-banner" class="notif-banner" role="alert" aria-live="polite">
+        <span style="font-size:20px" aria-hidden="true">🔔</span>
+        <div>
+          <strong data-banner-title style="display:block;font-size:13px">Notificación</strong>
+          <small data-banner-text>Aviso de demostración</small>
+        </div>
+      </a>
+
+      <div id="app-toast" class="toast" role="status" aria-live="polite"></div>
+    </div>
+    
+    <aside class="demo-dock" aria-label="Herramientas de demostración en escritorio">
+      <h2>🛠️ Herramientas de demo</h2>
+      <p>Prototipo visual estático · <strong>explorar.html</strong> · Hora ficticia: 18 nov, 12:30 h.</p>
+
+      <div class="dock-group">
+        <span class="dock-label">Controles visuales</span>
+        <button type="button" class="dock-btn" data-toggle-theme aria-pressed="false">
+          <span>🌓 Tema</span>
+          <span data-theme-label>Claro</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-test aria-pressed="false">
+          <span>⏱️ Modo test (CMA)</span>
+          <span data-test-label>Inactivo</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-empty>
+          <span>📭 Alternar estado vacío</span>
+          <span>Vista</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-empty-cart>
+          <span>🛒 Alternar carrito vacío</span>
+          <span>Carrito</span>
+        </button>
+      </div>
+
+      <div class="dock-group">
+        <span class="dock-label">Accesos rápidos</span>
+        <a href="index.html" class="dock-btn"><span>👋 Onboarding (index)</span><span>→</span></a>
+        <a href="explorar.html" class="dock-btn is-current"><span>🍽️ Alumno · Explorar</span><span>→</span></a>
+        <a href="checkout.html" class="dock-btn"><span>💳 Checkout (PE-4821 · $140)</span><span>→</span></a>
+        <a href="pedido.html" class="dock-btn"><span>⏱️ Seguimiento (PE-4821)</span><span>→</span></a>
+        <a href="progreso.html" class="dock-btn"><span>🏆 Gamificación (220 pts)</span><span>→</span></a>
+        <a href="comercio-pedidos.html" class="dock-btn"><span>🏪 Comercio (Guich Iteso)</span><span>→</span></a>
+      </div>
+    </aside>
+  </div>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>

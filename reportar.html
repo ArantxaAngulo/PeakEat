@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1f4e3d" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1512" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f4e3d'/%3E%3Cpath d='M5 23l7-12 5 7 4-5 6 10H5z' fill='%23ffffff'/%3E%3Ccircle cx='23' cy='9' r='3' fill='%23eab308'/%3E%3C/svg%3E">
+  <title>Reportar un problema — Peak & Eat</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="reportar" data-role="alumno">
+  <div class="stage">
+    <div class="phone-shell">
+      <div class="demo-strip">
+        <span>Demo visual · Dinero ficticio</span>
+        <span>18 nov · 12:30 h</span>
+      </div>
+
+      <div id="app-test-bar" class="test-bar" hidden>
+        <span>⏱ <strong data-test-time>0 s</strong></span>
+        <span>👆 <strong data-test-clicks>0</strong></span>
+        <span>Meta ≤120 s</span>
+        <button type="button" class="test-reset" data-reset-test>Reiniciar</button>
+      </div>
+      
+      <header class="app-header">
+        <div class="header-left">
+          <a href="ayuda.html" class="header-back" aria-label="Regresar">←</a>
+          <div class="header-title">
+            <strong>Reportar problema</strong>
+            <small>Ligado a pedido PE-4790</small>
+          </div>
+        </div>
+        <div class="header-actions">
+          <a href="monedero.html" class="pill-wallet" aria-label="Mi monedero: $159">$159</a>
+          <a href="notificaciones.html" class="bell-btn" aria-label="Notificaciones: 2 sin leer">
+            <span aria-hidden="true">🔔</span>
+            <span class="badge-num">2</span>
+          </a>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <div class="stack" data-report-page>
+  <div>
+    <h1>Reportar un problema</h1>
+    <p class="text-muted" style="margin-top:3px">Registra lo sucedido con tu pedido para dar seguimiento con el comercio aliado.</p>
+  </div>
+
+  <form id="report-form" class="card" style="margin-bottom:0" novalidate>
+    <div class="field" data-field="repOrder">
+      <label class="field-label" for="rep-order">Pedido relacionado *</label>
+      <select id="rep-order" class="select" required aria-describedby="rep-order-err">
+        <option value="4790" selected>PE-4790 · La Cocina de la Esquina ($95 · 16 nov)</option>
+        <option value="4821">PE-4821 · Guich Iteso ($183 · Hoy)</option>
+        <option value="4785">PE-4785 · Tacos de Canasta Jorgillo ($65 · 14 nov)</option>
+      </select>
+      <span id="rep-order-err" class="field-error" role="alert">Selecciona un pedido.</span>
+    </div>
+
+    <div class="field" data-field="repType">
+      <label class="field-label" for="rep-type">Tipo de problema *</label>
+      <select id="rep-type" class="select" required aria-describedby="rep-type-err">
+        <option value="">Selecciona una opción</option>
+        <option value="Pedido incompleto">Pedido incompleto</option>
+        <option value="Producto equivocado">Producto equivocado</option>
+        <option value="Comida en mal estado">Comida en mal estado</option>
+        <option value="Cobro incorrecto">Cobro incorrecto</option>
+        <option value="Tardó demasiado">Tardó demasiado</option>
+        <option value="Otro">Otro</option>
+      </select>
+      <span id="rep-type-err" class="field-error" role="alert">Elige el tipo de problema.</span>
+    </div>
+
+    <div class="field" data-field="repDesc">
+      <label class="field-label" for="rep-desc">Descripción breve *</label>
+      <textarea id="rep-desc" class="textarea" maxlength="300" placeholder="Cuéntanos qué faltó o qué ocurrió con tu pedido…" required aria-describedby="rep-desc-err"></textarea>
+      <span id="rep-desc-err" class="field-error" role="alert">Describe brevemente el problema (mínimo 10 caracteres).</span>
+    </div>
+
+    <div class="field">
+      <span class="field-label">Evidencia opcional (simulada)</span>
+      <button type="button" class="btn btn-secondary btn-sm" id="rep-attach-btn">📎 Adjuntar evidencia</button>
+      <div id="rep-file-chip" class="alert alert-info" hidden style="margin:8px 0 0;align-items:center">
+        <span aria-hidden="true">🖼️</span>
+        <span style="flex:1;font-size:12.5px" id="rep-file-name">evidencia_PE-4790.jpg · 420 KB</span>
+        <button type="button" class="btn btn-ghost btn-sm" id="rep-file-remove" aria-label="Quitar archivo">✕</button>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enviar reporte</button>
+  </form>
+
+  <section id="report-done" class="card" hidden style="text-align:center;margin-bottom:0">
+    <div style="font-size:42px;margin-bottom:4px" aria-hidden="true">✅</div>
+    <h2>Reporte registrado</h2>
+    <p class="text-muted" style="margin:4px 0 12px">Folio de soporte <strong class="mono">SUP-205</strong></p>
+    <div class="card" style="text-align:left;background:var(--bg)">
+      <div class="total-row"><span>Pedido</span><strong class="mono" id="rep-done-order">PE-4790</strong></div>
+      <div class="total-row"><span>Motivo</span><strong id="rep-done-type">Pedido incompleto</strong></div>
+      <div class="total-row"><span>Respuesta estimada</span><strong>Menos de 2 h hábiles</strong></div>
+    </div>
+    <p class="text-muted" style="margin:8px 0 14px">Nuestro equipo revisará el caso directamente con el comercio aliado.</p>
+    <a href="mis-reportes.html" class="btn btn-primary">Ver en Mis reportes</a>
+  </section>
+</div>
+      </main>
+      
+      
+
+      <a id="app-banner" class="notif-banner" role="alert" aria-live="polite">
+        <span style="font-size:20px" aria-hidden="true">🔔</span>
+        <div>
+          <strong data-banner-title style="display:block;font-size:13px">Notificación</strong>
+          <small data-banner-text>Aviso de demostración</small>
+        </div>
+      </a>
+
+      <div id="app-toast" class="toast" role="status" aria-live="polite"></div>
+    </div>
+    
+    <aside class="demo-dock" aria-label="Herramientas de demostración en escritorio">
+      <h2>🛠️ Herramientas de demo</h2>
+      <p>Prototipo visual estático · <strong>reportar.html</strong> · Hora ficticia: 18 nov, 12:30 h.</p>
+
+      <div class="dock-group">
+        <span class="dock-label">Controles visuales</span>
+        <button type="button" class="dock-btn" data-toggle-theme aria-pressed="false">
+          <span>🌓 Tema</span>
+          <span data-theme-label>Claro</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-test aria-pressed="false">
+          <span>⏱️ Modo test (CMA)</span>
+          <span data-test-label>Inactivo</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-empty>
+          <span>📭 Alternar estado vacío</span>
+          <span>Vista</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-empty-cart>
+          <span>🛒 Alternar carrito vacío</span>
+          <span>Carrito</span>
+        </button>
+      </div>
+
+      <div class="dock-group">
+        <span class="dock-label">Accesos rápidos</span>
+        <a href="index.html" class="dock-btn"><span>👋 Onboarding (index)</span><span>→</span></a>
+        <a href="explorar.html" class="dock-btn"><span>🍽️ Alumno · Explorar</span><span>→</span></a>
+        <a href="checkout.html" class="dock-btn"><span>💳 Checkout (PE-4821 · $140)</span><span>→</span></a>
+        <a href="pedido.html" class="dock-btn"><span>⏱️ Seguimiento (PE-4821)</span><span>→</span></a>
+        <a href="progreso.html" class="dock-btn"><span>🏆 Gamificación (220 pts)</span><span>→</span></a>
+        <a href="comercio-pedidos.html" class="dock-btn"><span>🏪 Comercio (Guich Iteso)</span><span>→</span></a>
+      </div>
+    </aside>
+  </div>
+
+  <script src="js/app.js" defer></script>
+  <script src="js/soporte.js" defer></script>
+</body>
+</html>

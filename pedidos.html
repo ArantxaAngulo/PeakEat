@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1f4e3d" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1512" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f4e3d'/%3E%3Cpath d='M5 23l7-12 5 7 4-5 6 10H5z' fill='%23ffffff'/%3E%3Ccircle cx='23' cy='9' r='3' fill='%23eab308'/%3E%3C/svg%3E">
+  <title>Mis pedidos — Peak & Eat</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="pedidos" data-role="alumno">
+  <div class="stage">
+    <div class="phone-shell">
+      <div class="demo-strip">
+        <span>Demo visual · Dinero ficticio</span>
+        <span>18 nov · 12:30 h</span>
+      </div>
+
+      <div id="app-test-bar" class="test-bar" hidden>
+        <span>⏱ <strong data-test-time>0 s</strong></span>
+        <span>👆 <strong data-test-clicks>0</strong></span>
+        <span>Meta ≤120 s</span>
+        <button type="button" class="test-reset" data-reset-test>Reiniciar</button>
+      </div>
+      
+      <header class="app-header">
+        <div class="header-brand">
+          <strong>Peak &amp; Eat</strong>
+          <small>📍 ITESO · 12:30 h</small>
+        </div>
+        <div class="header-actions">
+          <a href="progreso.html" class="pill-pts" aria-label="Mis puntos: 220 puntos">⭐ 220 pts</a>
+          <a href="monedero.html" class="pill-wallet" aria-label="Mi monedero: 159 pesos">$159</a>
+          <a href="notificaciones.html" class="bell-btn" aria-label="Notificaciones: 2 sin leer">
+            <span aria-hidden="true">🔔</span>
+            <span class="badge-num">2</span>
+          </a>
+        </div>
+      </header>
+
+      <main class="app-main has-nav">
+        <div data-orders-page>
+  <div data-empty-content>
+    <section style="margin-bottom:10px">
+      <h1>Mis pedidos</h1>
+      <p class="text-muted" style="margin-top:3px">Muestra tu código QR en la barra Peak &amp; Eat y evita la fila.</p>
+    </section>
+
+    <div class="section-head">
+      <h3>Activos (1)</h3>
+      <span class="tag tag-ok">En curso</span>
+    </div>
+
+    <article class="card-order">
+      <div class="row">
+        <span class="tag tag-warn">🔥 Preparando · Listo en ~6 min</span>
+        <strong class="mono" style="color:var(--pri-tx)">PE-4821</strong>
+      </div>
+      <div class="stepper" aria-label="Progreso: paso 2 de 4, Preparando">
+        <i class="is-done"></i><i class="is-done"></i><i></i><i></i>
+      </div>
+      <p style="font-size:13.5px;margin-top:8px"><strong>1× Panini artesanal + 1× Ensalada fresca</strong></p>
+      <p class="text-muted">Guich Iteso · Monedero · <strong>$183</strong> · Nota: Sin cebolla</p>
+      <div class="chip-wrap" style="margin-top:10px">
+        <a href="pedido.html" class="btn btn-primary btn-sm">Ver seguimiento</a>
+        <a href="chat.html" class="btn btn-secondary btn-sm">💬 Chat (1)</a>
+        <button type="button" class="btn btn-secondary btn-sm" data-open-qr="PE-4821" data-qr-vendor="Guich Iteso">📱 QR</button>
+      </div>
+    </article>
+
+    <div class="section-head">
+      <h3>Programados (1)</h3>
+      <span class="tag tag-info">Hoy 14:30</span>
+    </div>
+
+    <article class="card-order">
+      <div class="row">
+        <span class="tag tag-info">🕒 Programado · En espera</span>
+        <strong class="mono" style="color:var(--pri-tx)">PE-4822</strong>
+      </div>
+      <p style="font-size:13.5px;margin-top:8px"><strong>1× Panini artesanal de pavo y panela</strong></p>
+      <p class="text-muted">Guich Iteso · Recogida 14:30 h · Monedero · <strong>$98</strong></p>
+      <div class="chip-wrap" style="margin-top:10px">
+        <a href="pedido-programado.html" class="btn btn-primary btn-sm">Gestionar horario</a>
+        <a href="chat.html" class="btn btn-secondary btn-sm">💬 Chat</a>
+      </div>
+    </article>
+
+    <div class="section-head">
+      <h3>Historial (3)</h3>
+    </div>
+
+    <article class="card-order">
+      <div class="row">
+        <span class="tag tag-ok">✓ Recogido · ★★★★★ 5.0</span>
+        <span class="price-badge">$95</span>
+      </div>
+      <p style="font-size:13.5px;margin-top:8px"><strong>1× Comida corrida casera (2 tiempos)</strong></p>
+      <p class="text-muted"><span class="mono">PE-4790</span> · La Cocina de la Esquina · 16 nov · Monedero</p>
+      <div class="chip-wrap" style="margin-top:10px">
+        <a href="recibo.html?pedido=4790" class="btn btn-secondary btn-sm">📄 Ver recibo</a>
+        <button type="button" class="btn btn-secondary btn-sm" disabled aria-label="No disponible: La Cocina de la Esquina pausado 15 min">Local pausado 15 min</button>
+        <button type="button" class="btn btn-ghost btn-sm" data-open-combo="PE-4790" data-combo-items="1× Comida corrida casera · La Cocina de la Esquina">⭐ Guardar combo</button>
+      </div>
+    </article>
+
+    <article class="card-order">
+      <div class="row">
+        <span class="tag tag-ok">✓ Recogido</span>
+        <span class="price-badge">$65</span>
+      </div>
+      <p style="font-size:13.5px;margin-top:8px"><strong>1× Orden de 5 tacos de canasta + bebida</strong></p>
+      <p class="text-muted"><span class="mono">PE-4785</span> · Tacos de Canasta Jorgillo · 14 nov · Monedero</p>
+      <div class="chip-wrap" style="margin-top:10px">
+        <a href="calificar.html?pedido=4785" class="btn btn-primary btn-sm">⭐ Calificar (+5 pts)</a>
+        <a href="recibo.html?pedido=4785" class="btn btn-secondary btn-sm">📄 Ver recibo</a>
+        <a href="explorar.html#local-jg" class="btn btn-secondary btn-sm">Pedir de nuevo</a>
+        <button type="button" class="btn btn-ghost btn-sm" data-open-combo="PE-4785" data-combo-items="1× 5 tacos de canasta + bebida · Jorgillo">⭐ Guardar combo</button>
+      </div>
+    </article>
+
+    <article class="card-order">
+      <div class="row">
+        <span class="tag tag-bad">✕ Cancelado · Reembolsado $90</span>
+        <span class="price-badge">$90</span>
+      </div>
+      <p style="font-size:13.5px;margin-top:8px"><strong>1× Menú ejecutivo casero + agua fresca</strong></p>
+      <p class="text-muted"><span class="mono">PE-4810</span> · D' Eli, comida corrida · 18 nov 10:12</p>
+      <div class="chip-wrap" style="margin-top:10px">
+        <a href="monedero.html" class="btn btn-secondary btn-sm">Ver reembolso</a>
+        <button type="button" class="btn btn-secondary btn-sm" disabled aria-label="No disponible: D' Eli cerrado hoy">Cerrado hoy</button>
+      </div>
+    </article>
+  </div>
+
+  <section class="empty-state" data-empty-box hidden>
+    <div class="empty-icon" aria-hidden="true">🛍️</div>
+    <h2>Aún no tienes pedidos</h2>
+    <p>Aparta tu comida desde el salón y recógela sin filas en el ITESO.</p>
+    <a href="explorar.html" class="btn btn-primary btn-sm">Explorar comida</a>
+  </section>
+</div>
+      </main>
+      
+      <nav class="bottom-nav" aria-label="Navegación principal alumno">
+        <a href="explorar.html" class="nav-item">
+          <span class="nav-ic" aria-hidden="true">🍽️</span>
+          <span>Explorar</span>
+        </a>
+        <a href="locales.html" class="nav-item">
+          <span class="nav-ic" aria-hidden="true">🏪</span>
+          <span>Locales</span>
+        </a>
+        <a href="pedidos.html" class="nav-item is-active" aria-current="page">
+          <span class="nav-ic" aria-hidden="true">🛍️</span>
+          <span>Pedidos</span><span class="nav-badge" aria-label="3 pendientes">3</span>
+        </a>
+        <a href="perfil.html" class="nav-item">
+          <span class="nav-ic" aria-hidden="true">👤</span>
+          <span>Perfil</span>
+        </a>
+      </nav>
+      <div id="sheet-qr" class="sheet-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="qr-title">
+  <div class="sheet" style="text-align:center">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <div class="sheet-head">
+      <div style="text-align:left">
+        <span class="tag tag-ok">Entrega sin fila</span>
+        <h2 id="qr-title" style="margin-top:4px">Código de entrega</h2>
+      </div>
+      <button type="button" class="sheet-close" data-close-sheet aria-label="Cerrar código QR">✕</button>
+    </div>
+    <div class="qr-wrap" data-qr-svg="PE-4821" role="img" aria-label="Código QR de demostración del pedido PE-4821"></div>
+    <p><strong class="mono" style="font-size:20px" data-qr-folio>PE-4821</strong></p>
+    <p class="text-muted" style="margin:4px 0 14px"><span data-qr-vendor-text>Guich Iteso</span> · Muéstralo en la barra Peak &amp; Eat.<br><strong>Código de demostración.</strong></p>
+    <button type="button" class="btn btn-primary" data-close-sheet>Listo</button>
+  </div>
+</div>
+
+<div id="sheet-guardar-combo" class="sheet-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="combo-title">
+  <div class="sheet">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <div class="sheet-head">
+      <div>
+        <span class="tag tag-info">Favoritos rápidos</span>
+        <h2 id="combo-title" style="margin-top:4px">Guardar como combo</h2>
+      </div>
+      <button type="button" class="sheet-close" data-close-sheet aria-label="Cerrar guardar combo">✕</button>
+    </div>
+    <form id="save-combo-form" novalidate data-save-combo-form>
+      <p class="text-muted" style="margin-bottom:10px" data-combo-summary>1× Comida corrida casera · La Cocina de la Esquina</p>
+      <div class="field" data-field="comboName">
+        <label class="field-label" for="combo-name">Nombre de tu combo *</label>
+        <input id="combo-name" type="text" class="input" maxlength="40" placeholder="Ej. Mi comida de los martes" required aria-describedby="combo-name-err">
+        <span id="combo-name-err" class="field-error" role="alert">Escribe un nombre para identificar tu combo.</span>
+      </div>
+      <div class="row" style="gap:8px">
+        <button type="submit" class="btn btn-primary">Guardar combo</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+      <a id="app-banner" class="notif-banner" role="alert" aria-live="polite">
+        <span style="font-size:20px" aria-hidden="true">🔔</span>
+        <div>
+          <strong data-banner-title style="display:block;font-size:13px">Notificación</strong>
+          <small data-banner-text>Aviso de demostración</small>
+        </div>
+      </a>
+
+      <div id="app-toast" class="toast" role="status" aria-live="polite"></div>
+    </div>
+    
+    <aside class="demo-dock" aria-label="Herramientas de demostración en escritorio">
+      <h2>🛠️ Herramientas de demo</h2>
+      <p>Prototipo visual estático · <strong>pedidos.html</strong> · Hora ficticia: 18 nov, 12:30 h.</p>
+
+      <div class="dock-group">
+        <span class="dock-label">Controles visuales</span>
+        <button type="button" class="dock-btn" data-toggle-theme aria-pressed="false">
+          <span>🌓 Tema</span>
+          <span data-theme-label>Claro</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-test aria-pressed="false">
+          <span>⏱️ Modo test (CMA)</span>
+          <span data-test-label>Inactivo</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-empty>
+          <span>📭 Alternar estado vacío</span>
+          <span>Vista</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-empty-cart>
+          <span>🛒 Alternar carrito vacío</span>
+          <span>Carrito</span>
+        </button>
+      </div>
+
+      <div class="dock-group">
+        <span class="dock-label">Accesos rápidos</span>
+        <a href="index.html" class="dock-btn"><span>👋 Onboarding (index)</span><span>→</span></a>
+        <a href="explorar.html" class="dock-btn"><span>🍽️ Alumno · Explorar</span><span>→</span></a>
+        <a href="checkout.html" class="dock-btn"><span>💳 Checkout (PE-4821 · $140)</span><span>→</span></a>
+        <a href="pedido.html" class="dock-btn"><span>⏱️ Seguimiento (PE-4821)</span><span>→</span></a>
+        <a href="progreso.html" class="dock-btn"><span>🏆 Gamificación (220 pts)</span><span>→</span></a>
+        <a href="comercio-pedidos.html" class="dock-btn"><span>🏪 Comercio (Guich Iteso)</span><span>→</span></a>
+      </div>
+    </aside>
+  </div>
+
+  <script src="js/app.js" defer></script>
+  <script src="js/pedidos.js" defer></script>
+</body>
+</html>

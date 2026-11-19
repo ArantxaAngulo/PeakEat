@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1f4e3d" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1512" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f4e3d'/%3E%3Cpath d='M5 23l7-12 5 7 4-5 6 10H5z' fill='%23ffffff'/%3E%3Ccircle cx='23' cy='9' r='3' fill='%23eab308'/%3E%3C/svg%3E">
+  <title>Checkout — Peak & Eat</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="checkout" data-role="alumno">
+  <div class="stage">
+    <div class="phone-shell">
+      <div class="demo-strip">
+        <span>Demo visual · Dinero ficticio</span>
+        <span>18 nov · 12:30 h</span>
+      </div>
+
+      <div id="app-test-bar" class="test-bar" hidden>
+        <span>⏱ <strong data-test-time>0 s</strong></span>
+        <span>👆 <strong data-test-clicks>0</strong></span>
+        <span>Meta ≤120 s</span>
+        <button type="button" class="test-reset" data-reset-test>Reiniciar</button>
+      </div>
+      
+      <header class="app-header">
+        <div class="header-left">
+          <a href="explorar.html" class="header-back" aria-label="Regresar">←</a>
+          <div class="header-title">
+            <strong>Checkout</strong>
+            <small>Guich Iteso · Pedido PE-4821</small>
+          </div>
+        </div>
+        <div class="header-actions">
+          <a href="monedero.html" class="pill-wallet" aria-label="Saldo previo antes de recarga: $140">$140</a>
+          <a href="notificaciones.html" class="bell-btn" aria-label="Notificaciones: 2 sin leer">
+            <span aria-hidden="true">🔔</span>
+            <span class="badge-num">2</span>
+          </a>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <form id="checkout-form" class="stack" novalidate data-checkout-page>
+  <div class="alert alert-info" style="margin-bottom:0">
+    <span aria-hidden="true">🧾</span>
+    <div>
+      <strong>Guich Iteso · Horario 08:00–18:00 h</strong>
+      <div style="font-size:12px;margin-top:2px">Saldo previo en esta pantalla: <strong data-co-wallet-inline>$140</strong> (flujo de recarga antes de pagar PE-4821).</div>
+    </div>
+  </div>
+
+  <section class="card" style="margin-bottom:0">
+    <div class="row" style="margin-bottom:8px">
+      <h3>Resumen del pedido</h3>
+      <span class="tag tag-info mono">PE-4821</span>
+    </div>
+    <div class="cart-line">
+      <span class="cart-line-emoji" aria-hidden="true">🥪</span>
+      <div class="cart-line-info">
+        <strong>1× Panini artesanal de pavo y panela</strong>
+        <small>Guich Iteso · 9 min</small>
+      </div>
+      <strong>$98</strong>
+    </div>
+    <div class="cart-line">
+      <span class="cart-line-emoji" aria-hidden="true">🥗</span>
+      <div class="cart-line-info">
+        <strong>1× Ensalada fresca con pollo a la plancha</strong>
+        <small>Guich Iteso · 9 min</small>
+      </div>
+      <strong>$110</strong>
+    </div>
+
+    <div class="field" style="margin-top:10px;margin-bottom:0">
+      <label class="field-label" for="co-note">Nota para cocina (opcional)</label>
+      <input id="co-note" type="text" class="input" maxlength="120" value="Sin cebolla" placeholder="Ej. Sin cebolla, aderezo aparte">
+    </div>
+  </section>
+
+  <section class="card" style="margin-bottom:0">
+    <h3 style="margin-bottom:8px">¿Cuándo lo quieres?</h3>
+    <div class="radio-grid">
+      <label class="radio-card" for="when-now">
+        <input id="when-now" type="radio" name="when" value="now" checked>
+        <span>⚡ Lo antes posible (~9 min)</span>
+      </label>
+      <label class="radio-card" for="when-sched">
+        <input id="when-sched" type="radio" name="when" value="schedule">
+        <span>🕒 Programar</span>
+      </label>
+    </div>
+
+    <div id="co-schedule-box" hidden style="margin-top:12px;padding-top:12px;border-top:1px solid var(--bd)">
+      <span class="field-label">Atajos de salida de clase (hora actual: 12:30 h)</span>
+      <div class="slot-grid" role="group" aria-label="Horarios rápidos de recogida">
+        <button type="button" class="slot-btn" disabled aria-label="10:00 pasada">10:00<small>Pasada</small></button>
+        <button type="button" class="slot-btn" disabled aria-label="11:30 pasada">11:30<small>Pasada</small></button>
+        <button type="button" class="slot-btn" data-slot="13:00">13:00<small>Disponible</small></button>
+        <button type="button" class="slot-btn is-active" data-slot="14:30">14:30<small>Disponible</small></button>
+        <button type="button" class="slot-btn" data-slot="16:00">16:00<small>Disponible</small></button>
+      </div>
+
+      <div class="field" data-field="schedTime" style="margin-bottom:8px">
+        <label class="field-label" for="co-time">Hora exacta (horario Guich Iteso: 08:00–18:00 h)</label>
+        <select id="co-time" class="select" aria-describedby="co-time-err">
+          <option value="11:30">11:30 h (hora pasada — probar validación)</option>
+          <option value="13:00">13:00 h</option>
+          <option value="13:15">13:15 h</option>
+          <option value="13:30">13:30 h</option>
+          <option value="14:00">14:00 h</option>
+          <option value="14:30" selected>14:30 h</option>
+          <option value="15:00">15:00 h</option>
+          <option value="16:00">16:00 h</option>
+          <option value="17:30">17:30 h</option>
+          <option value="18:30">18:30 h (fuera de horario — probar validación)</option>
+        </select>
+        <span id="co-time-err" class="field-error" role="alert">Elige una hora futura dentro del horario de Guich Iteso (12:50–17:45 h).</span>
+      </div>
+
+      <p class="field-hint" style="margin:0">La preparación empieza 10 min antes de tu hora elegida; puedes cancelar sin costo hasta ese momento.</p>
+    </div>
+  </section>
+
+  <section class="card" style="margin-bottom:0">
+    <div class="row" style="margin-bottom:6px">
+      <h3>Cupón de descuento</h3>
+      <a href="monedero.html?desde=checkout#tab-cupones" class="link-inline" style="font-size:12.5px">Ver cupones</a>
+    </div>
+    <label class="sr-only" for="co-coupon">Seleccionar cupón</label>
+    <select id="co-coupon" class="select" data-co-coupon>
+      <option value="25" selected>🥗 $25 de descuento en bowl o panini (−$25 · mín. $90)</option>
+      <option value="0">Sin cupón ($0)</option>
+      <option value="35" disabled>☕ Café americano o agua del día (−$35 · No aplicable a este pedido)</option>
+    </select>
+    <span class="field-hint">El cupón de café/agua requiere incluir un café americano o agua del día.</span>
+  </section>
+
+  <section class="card" style="margin-bottom:0">
+    <h3 style="margin-bottom:8px">Método de pago</h3>
+    <div class="pay-stack">
+      <label class="pay-card" for="pay-wallet">
+        <input id="pay-wallet" type="radio" name="payment" value="wallet" checked>
+        <div class="pay-card-body">
+          <strong>💳 Monedero Peak &amp; Eat</strong>
+          <small>Saldo disponible: <strong data-co-wallet-text>$140</strong> (dinero ficticio)</small>
+        </div>
+      </label>
+
+      <div id="co-insufficient-box" class="alert alert-bad" role="alert" style="margin:0">
+        <span aria-hidden="true">⚠️</span>
+        <div style="flex:1">
+          <strong>Saldo insuficiente: te faltan <span data-co-missing>$43</span></strong>
+          <div style="font-size:12px;margin:2px 0 8px">Recarga tu monedero sin perder tu carrito.</div>
+          <button type="button" class="btn btn-primary btn-sm" data-open-sheet="sheet-recarga">Recargar $300</button>
+        </div>
+      </div>
+
+      <label class="pay-card" for="pay-card">
+        <input id="pay-card" type="radio" name="payment" value="card">
+        <div class="pay-card-body">
+          <strong>🏦 Tarjeta (demo)</strong>
+          <small>Simulación con tarjeta aprobada o rechazada</small>
+        </div>
+      </label>
+
+      <div id="co-card-box" hidden style="padding:10px;border-radius:12px;background:var(--bg);border:1px solid var(--bd)">
+        <label class="field-label" for="co-test-card">Tarjeta de prueba</label>
+        <select id="co-test-card" class="select">
+          <option value="ok">✅ Visa demo •••• 4242 (Aprueba)</option>
+          <option value="fail">❌ Visa demo •••• 0002 (Rechaza pago)</option>
+        </select>
+        <div id="co-card-err" class="alert alert-bad" role="alert" hidden style="margin:8px 0 0">
+          <span aria-hidden="true">❌</span>
+          <div>Tarjeta rechazada (simulado). Tu carrito se conserva; prueba otra tarjeta o usa Monedero.</div>
+        </div>
+      </div>
+
+      <label class="pay-card" for="pay-pickup">
+        <input id="pay-pickup" type="radio" name="payment" value="pickup">
+        <div class="pay-card-body">
+          <strong>💵 Pagar al recoger</strong>
+          <small>Liquida directo en la barra de Guich Iteso</small>
+        </div>
+      </label>
+    </div>
+  </section>
+
+  <section class="card" style="margin-bottom:0">
+    <h3 style="margin-bottom:8px">Datos de contacto</h3>
+    <div class="field" data-field="coName">
+      <label class="field-label" for="co-name">Tu nombre *</label>
+      <input id="co-name" type="text" class="input" value="Arantxa Morales" required aria-describedby="co-name-err">
+      <span id="co-name-err" class="field-error" role="alert">Escribe tu nombre para entregar el pedido.</span>
+    </div>
+    <div class="field" data-field="coContact" style="margin-bottom:0">
+      <label class="field-label" for="co-contact">WhatsApp o correo ITESO *</label>
+      <input id="co-contact" type="text" class="input" value="33 1842 9056" required aria-describedby="co-contact-err">
+      <span id="co-contact-err" class="field-error" role="alert">Ingresa un contacto válido.</span>
+    </div>
+  </section>
+
+  <section class="card" style="margin-bottom:0">
+    <div class="total-row"><span>Subtotal</span><span>$208</span></div>
+    <div class="total-row"><span>Descuento cupón</span><span style="color:var(--ok-tx);font-weight:700" data-co-discount>−$25</span></div>
+    <div class="total-final"><span>Total a pagar</span><span data-co-total>$183</span></div>
+    <button type="submit" id="co-submit-btn" class="btn btn-primary" style="margin-top:12px" disabled>Apartar pedido · $183</button>
+    <p id="co-submit-hint" class="field-hint" style="text-align:center;margin-top:6px">Recarga tu monedero o cambia de método de pago para continuar.</p>
+  </section>
+</form>
+      </main>
+      
+      <div id="sheet-recarga" class="sheet-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="sr-title">
+  <div class="sheet">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <div class="sheet-head">
+      <div>
+        <span class="tag tag-info">Dinero ficticio · Demo</span>
+        <h2 id="sr-title" style="margin-top:4px">Recargar monedero</h2>
+      </div>
+      <button type="button" class="sheet-close" data-close-sheet aria-label="Cerrar recarga">✕</button>
+    </div>
+
+    <form id="topup-form" novalidate data-topup-form>
+      <div class="field">
+        <span class="field-label">Montos rápidos</span>
+        <div class="chip-wrap" role="group" aria-label="Montos rápidos de recarga">
+          <button type="button" class="chip" data-topup-preset="50">$50</button>
+          <button type="button" class="chip" data-topup-preset="100">$100</button>
+          <button type="button" class="chip" data-topup-preset="200">$200</button>
+          <button type="button" class="chip is-active" data-topup-preset="300">$300</button>
+          <button type="button" class="chip" data-topup-preset="500">$500</button>
+        </div>
+      </div>
+
+      <div class="field" data-field="topupAmount">
+        <label class="field-label" for="topup-amount">Monto personalizado ($20 – $1,000 MXN)</label>
+        <input id="topup-amount" type="number" class="input" min="20" max="1000" step="1" value="300" required aria-describedby="topup-amount-err">
+        <span id="topup-amount-err" class="field-error" role="alert">Ingresa un monto entre $20 y $1,000.</span>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Método simulado</span>
+        <div class="radio-grid">
+          <label class="radio-card" for="tm-card">
+            <input id="tm-card" type="radio" name="topupMethod" value="card" checked>
+            <span>💳 Tarjeta</span>
+          </label>
+          <label class="radio-card" for="tm-spei">
+            <input id="tm-spei" type="radio" name="topupMethod" value="spei">
+            <span>🏦 Transferencia</span>
+          </label>
+          <label class="radio-card" for="tm-cash">
+            <input id="tm-cash" type="radio" name="topupMethod" value="cash">
+            <span>💵 Caja</span>
+          </label>
+        </div>
+      </div>
+
+      <div id="topup-card-fields" class="card" style="background:var(--bg);margin-bottom:12px">
+        <div class="chip-wrap" style="margin-bottom:8px">
+          <button type="button" class="chip" data-test-card="4242 4242 4242 4242">✅ Aprobada (4242)</button>
+          <button type="button" class="chip" data-test-card="4000 0000 0000 0002">❌ Rechazada (0002)</button>
+        </div>
+
+        <div class="field" data-field="cardNum">
+          <label class="field-label" for="topup-card-num">Número de tarjeta (ficticia)</label>
+          <input id="topup-card-num" type="text" inputmode="numeric" maxlength="19" class="input mono" value="4242 4242 4242 4242" aria-describedby="topup-card-num-err">
+          <span id="topup-card-num-err" class="field-error" role="alert">Ingresa 16 dígitos válidos.</span>
+        </div>
+
+        <div class="row" style="gap:8px;align-items:flex-start">
+          <div class="field" data-field="cardExp" style="flex:1;margin-bottom:0">
+            <label class="field-label" for="topup-card-exp">Vigencia</label>
+            <input id="topup-card-exp" type="text" maxlength="5" class="input mono" value="08/29" placeholder="MM/AA" aria-describedby="topup-card-exp-err">
+            <span id="topup-card-exp-err" class="field-error" role="alert">Formato MM/AA.</span>
+          </div>
+          <div class="field" data-field="cardCvv" style="flex:1;margin-bottom:0">
+            <label class="field-label" for="topup-card-cvv">CVV</label>
+            <input id="topup-card-cvv" type="text" inputmode="numeric" maxlength="4" class="input mono" value="123" placeholder="123" aria-describedby="topup-card-cvv-err">
+            <span id="topup-card-cvv-err" class="field-error" role="alert">3 o 4 dígitos.</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="topup-error" class="alert alert-bad" role="alert" hidden>
+        <span aria-hidden="true">❌</span>
+        <div>Tarjeta rechazada por el banco (simulado). Conservamos tu carrito; intenta con la tarjeta aprobada o transferencia.</div>
+      </div>
+
+      <button type="submit" id="topup-submit" class="btn btn-primary">Recargar $300</button>
+    </form>
+  </div>
+</div>
+
+<div id="sheet-confirmacion" class="sheet-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="conf-title">
+  <div class="sheet" style="text-align:center">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <div style="font-size:44px;margin-bottom:4px" aria-hidden="true">✅</div>
+    <h2 id="conf-title">¡Pedido apartado!</h2>
+    <p class="text-muted" style="margin:4px 0 12px">Folio <strong class="mono">PE-4821</strong> · <span data-conf-when>Lo antes posible (~9 min)</span></p>
+
+    <div class="card" style="text-align:left;background:var(--bg)">
+      <div class="total-row"><span>1× Panini artesanal de pavo y panela</span><span>$98</span></div>
+      <div class="total-row"><span>1× Ensalada fresca con pollo a la plancha</span><span>$110</span></div>
+      <div class="total-row"><span>Nota: <em data-conf-note>Sin cebolla</em></span><span data-conf-disc>−$25</span></div>
+      <div class="total-final"><span>Total (<span data-conf-pay>Monedero</span>)</span><span data-conf-total>$183</span></div>
+    </div>
+
+    <div class="alert alert-ok" style="justify-content:center">
+      <span aria-hidden="true">⭐</span>
+      <strong>+15 Peak Points ganados con este pedido</strong>
+    </div>
+
+    <a id="conf-next-link" href="pedido.html" class="btn btn-primary">Ver mi pedido</a>
+  </div>
+</div>
+
+      <a id="app-banner" class="notif-banner" role="alert" aria-live="polite">
+        <span style="font-size:20px" aria-hidden="true">🔔</span>
+        <div>
+          <strong data-banner-title style="display:block;font-size:13px">Notificación</strong>
+          <small data-banner-text>Aviso de demostración</small>
+        </div>
+      </a>
+
+      <div id="app-toast" class="toast" role="status" aria-live="polite"></div>
+    </div>
+    
+    <aside class="demo-dock" aria-label="Herramientas de demostración en escritorio">
+      <h2>🛠️ Herramientas de demo</h2>
+      <p>Prototipo visual estático · <strong>checkout.html</strong> · Hora ficticia: 18 nov, 12:30 h.</p>
+
+      <div class="dock-group">
+        <span class="dock-label">Controles visuales</span>
+        <button type="button" class="dock-btn" data-toggle-theme aria-pressed="false">
+          <span>🌓 Tema</span>
+          <span data-theme-label>Claro</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-test aria-pressed="false">
+          <span>⏱️ Modo test (CMA)</span>
+          <span data-test-label>Inactivo</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-empty>
+          <span>📭 Alternar estado vacío</span>
+          <span>Vista</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-empty-cart>
+          <span>🛒 Alternar carrito vacío</span>
+          <span>Carrito</span>
+        </button>
+      </div>
+
+      <div class="dock-group">
+        <span class="dock-label">Accesos rápidos</span>
+        <a href="index.html" class="dock-btn"><span>👋 Onboarding (index)</span><span>→</span></a>
+        <a href="explorar.html" class="dock-btn"><span>🍽️ Alumno · Explorar</span><span>→</span></a>
+        <a href="checkout.html" class="dock-btn is-current"><span>💳 Checkout (PE-4821 · $140)</span><span>→</span></a>
+        <a href="pedido.html" class="dock-btn"><span>⏱️ Seguimiento (PE-4821)</span><span>→</span></a>
+        <a href="progreso.html" class="dock-btn"><span>🏆 Gamificación (220 pts)</span><span>→</span></a>
+        <a href="comercio-pedidos.html" class="dock-btn"><span>🏪 Comercio (Guich Iteso)</span><span>→</span></a>
+      </div>
+    </aside>
+  </div>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>

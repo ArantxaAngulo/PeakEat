@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1f4e3d" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1512" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f4e3d'/%3E%3Cpath d='M5 23l7-12 5 7 4-5 6 10H5z' fill='%23ffffff'/%3E%3Ccircle cx='23' cy='9' r='3' fill='%23eab308'/%3E%3C/svg%3E">
+  <title>Ayuda y soporte — Peak & Eat</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="ayuda" data-role="alumno">
+  <div class="stage">
+    <div class="phone-shell">
+      <div class="demo-strip">
+        <span>Demo visual · Dinero ficticio</span>
+        <span>18 nov · 12:30 h</span>
+      </div>
+
+      <div id="app-test-bar" class="test-bar" hidden>
+        <span>⏱ <strong data-test-time>0 s</strong></span>
+        <span>👆 <strong data-test-clicks>0</strong></span>
+        <span>Meta ≤120 s</span>
+        <button type="button" class="test-reset" data-reset-test>Reiniciar</button>
+      </div>
+      
+      <header class="app-header">
+        <div class="header-left">
+          <a href="perfil.html" class="header-back" aria-label="Regresar">←</a>
+          <div class="header-title">
+            <strong>Ayuda y soporte</strong>
+            <small>Preguntas frecuentes</small>
+          </div>
+        </div>
+        <div class="header-actions">
+          <a href="monedero.html" class="pill-wallet" aria-label="Mi monedero: $159">$159</a>
+          <a href="notificaciones.html" class="bell-btn" aria-label="Notificaciones: 2 sin leer">
+            <span aria-hidden="true">🔔</span>
+            <span class="badge-num">2</span>
+          </a>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <div class="stack" data-help-page>
+  <div>
+    <h1>¿En qué te ayudamos?</h1>
+    <p class="text-muted" style="margin-top:3px">Respuestas rápidas sobre pedidos, entregas QR y monedero en Peak &amp; Eat.</p>
+  </div>
+
+  <div class="search-box" style="margin-bottom:0">
+    <span aria-hidden="true">🔍</span>
+    <label class="sr-only" for="faq-search">Buscar en preguntas frecuentes</label>
+    <input id="faq-search" type="search" placeholder="Buscar: QR, cancelar, monedero, puntos…" autocomplete="off">
+  </div>
+
+  <div id="faq-list">
+    <details class="faq-item" data-faq-item open>
+      <summary>¿Cómo recojo mi pedido?</summary>
+      <p>Cuando tu pedido en Peak &amp; Eat cambie a "Listo para recoger", dirígete directo a la barra Peak &amp; Eat del local sin hacer fila, menciona tu folio y muestra tu código QR.</p>
+    </details>
+
+    <details class="faq-item" data-faq-item>
+      <summary>¿Cómo funciona el código QR?</summary>
+      <p>Cada pedido genera un folio y un código QR visible en "Mis pedidos" y en el seguimiento. Al mostrarlo en la barra, el comercio valida la entrega en segundos. En esta demostración el QR es decorativo.</p>
+    </details>
+
+    <details class="faq-item" data-faq-item>
+      <summary>¿Cómo recargo mi monedero?</summary>
+      <p>Puedes recargar desde Mi monedero o directo en Checkout si te falta saldo. En Peak &amp; Eat aceptamos montos de $20 a $1,000 con tarjeta de prueba, transferencia simulada o efectivo en caja (dinero ficticio).</p>
+    </details>
+
+    <details class="faq-item" data-faq-item>
+      <summary>¿Puedo cancelar un pedido?</summary>
+      <p>Sí, la cancelación es gratuita mientras tu pedido esté en "Recibido" o en "Programado" antes de iniciar preparación, con reembolso automático al monedero. Una vez que pasa a "Preparando", ya no puede cancelarse desde la app.</p>
+    </details>
+
+    <details class="faq-item" data-faq-item>
+      <summary>¿Qué pasa si el local cierra o se pausa?</summary>
+      <p>Si un comercio se pausa por alta demanda o cierra por el día, sus platillos aparecen deshabilitados en Peak &amp; Eat con el motivo visible. Si ya tenías un pedido afectado, levanta un reporte en esta misma pantalla.</p>
+    </details>
+
+    <details class="faq-item" data-faq-item>
+      <summary>¿Cómo uso mis Peak Points?</summary>
+      <p>Ganas puntos en cada pedido, al calificar y al completar retos en "Mi progreso". Canjéalos por cupones que aparecerán listos en tu monedero para aplicarlos al pagar en Checkout.</p>
+    </details>
+  </div>
+
+  <section id="faq-no-results" class="empty-state" hidden>
+    <div class="empty-icon" aria-hidden="true">🔍</div>
+    <h2>Sin coincidencias</h2>
+    <p>No encontramos preguntas con ese término. Intenta con otra palabra o levanta un reporte.</p>
+    <button type="button" class="btn btn-secondary btn-sm" id="faq-clear-btn">Limpiar búsqueda</button>
+  </section>
+
+  <section class="card" style="margin-bottom:0">
+    <h3>¿Sigues con algún problema?</h3>
+    <p class="text-muted" style="margin:4px 0 12px">Cuéntanos qué ocurrió con tu pedido y daremos seguimiento directo con el comercio.</p>
+    <div class="stack-sm">
+      <a href="reportar.html" class="btn btn-primary">⚠️ Reportar un problema</a>
+      <a href="mis-reportes.html" class="btn btn-secondary">📋 Ver mis reportes (2)</a>
+    </div>
+  </section>
+</div>
+      </main>
+      
+      
+
+      <a id="app-banner" class="notif-banner" role="alert" aria-live="polite">
+        <span style="font-size:20px" aria-hidden="true">🔔</span>
+        <div>
+          <strong data-banner-title style="display:block;font-size:13px">Notificación</strong>
+          <small data-banner-text>Aviso de demostración</small>
+        </div>
+      </a>
+
+      <div id="app-toast" class="toast" role="status" aria-live="polite"></div>
+    </div>
+    
+    <aside class="demo-dock" aria-label="Herramientas de demostración en escritorio">
+      <h2>🛠️ Herramientas de demo</h2>
+      <p>Prototipo visual estático · <strong>ayuda.html</strong> · Hora ficticia: 18 nov, 12:30 h.</p>
+
+      <div class="dock-group">
+        <span class="dock-label">Controles visuales</span>
+        <button type="button" class="dock-btn" data-toggle-theme aria-pressed="false">
+          <span>🌓 Tema</span>
+          <span data-theme-label>Claro</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-test aria-pressed="false">
+          <span>⏱️ Modo test (CMA)</span>
+          <span data-test-label>Inactivo</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-empty>
+          <span>📭 Alternar estado vacío</span>
+          <span>Vista</span>
+        </button>
+        <button type="button" class="dock-btn" data-toggle-empty-cart>
+          <span>🛒 Alternar carrito vacío</span>
+          <span>Carrito</span>
+        </button>
+      </div>
+
+      <div class="dock-group">
+        <span class="dock-label">Accesos rápidos</span>
+        <a href="index.html" class="dock-btn"><span>👋 Onboarding (index)</span><span>→</span></a>
+        <a href="explorar.html" class="dock-btn"><span>🍽️ Alumno · Explorar</span><span>→</span></a>
+        <a href="checkout.html" class="dock-btn"><span>💳 Checkout (PE-4821 · $140)</span><span>→</span></a>
+        <a href="pedido.html" class="dock-btn"><span>⏱️ Seguimiento (PE-4821)</span><span>→</span></a>
+        <a href="progreso.html" class="dock-btn"><span>🏆 Gamificación (220 pts)</span><span>→</span></a>
+        <a href="comercio-pedidos.html" class="dock-btn"><span>🏪 Comercio (Guich Iteso)</span><span>→</span></a>
+      </div>
+    </aside>
+  </div>
+
+  <script src="js/app.js" defer></script>
+  <script src="js/soporte.js" defer></script>
+</body>
+</html>
